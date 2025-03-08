@@ -398,7 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (data.Success) {
                 alert("✅ Google Login Successful!");
-
+                localStorage.setItem("profilePicture", data.profilePicture || ""); // ✅ Store profile picture
                 // ✅ Store the token
                 localStorage.setItem("authToken", data.token);
                 localStorage.setItem("userId", data.userId);
@@ -565,8 +565,12 @@ display: none; /* Hide registration fields initially */
             <div class="site-footer__shape-2 float-bob-y">
                 <img src="assets/images/shapes/site-footer-shape-2.png" alt="">
             </div>
-
             <div class="site-footer__marquee">
+                <style>
+                    .site-footer__marquee .marquee_mode li {
+                        color: black; /* Change text color to black */
+                    }
+                </style>
                 <ul class="marquee_mode">
                     <li>Luxury Stay Accommodations</li>
                     <li>Mini Formula Track</li>
@@ -579,6 +583,7 @@ display: none; /* Hide registration fields initially */
                     <li>Private Yacht & Jet Charters</li>
                 </ul>
             </div>
+            
             
 
             <div class="container">

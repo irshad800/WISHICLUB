@@ -68,50 +68,37 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Extract token from URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const token = urlParams.get("token");
+  document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get("token");
 
-            if (token) {
-                console.log("✅ Token received:", token); // Debugging
+    if (token) {
+        console.log("✅ Token received:", token);
 
-                // Store token in localStorage
-                localStorage.setItem("authToken", token);
+        // Store token in localStorage
+        localStorage.setItem("authToken", token);
 
-                // Countdown Timer for redirect
-                let timeLeft = 5;
-                const countdownEl = document.querySelector(".countdown");
+        // Countdown Timer for redirect
+        let timeLeft = 5;
+        const countdownEl = document.querySelector(".countdown");
 
-                const timer = setInterval(() => {
-                    timeLeft--;
-                    countdownEl.textContent = timeLeft;
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdownEl.textContent = timeLeft;
 
-                    if (timeLeft <= 0) {
-                        clearInterval(timer);
-                        window.location.href = "index.html"; // Redirect to Dashboard
-                    }
-                }, 1000);
-            } else {
-                console.log("❌ No token found in URL");
-                document.querySelector("h2").innerText = "❌ Invalid Verification Link!";
-                document.querySelector("p").innerText = "The verification link is invalid or expired.";
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                window.location.href = "dashboard.html"; // Redirect to Dashboard
             }
+        }, 1000);
+    } else {
+        console.log("❌ No token found in URL");
+        document.querySelector("h2").innerText = "❌ Invalid Verification Link!";
+        document.querySelector("p").innerText = "The verification link is invalid or expired.";
+    }
+});
 
-            // Update Navbar Button Based on Auth Token
-            const authToken = localStorage.getItem("authToken");
-            const authButton = document.getElementById("authButton");
 
-            if (authToken) {
-                console.log("🔓 User is logged in, showing dashboard button");
-                authButton.innerHTML = 'Dashboard <span class="icon-up-right-arrow"></span>';
-                authButton.href = "index.html"; // Redirect to dashboard
-            } else {
-                console.log("🔒 No token found, showing login button");
-                authButton.innerHTML = 'Login / Sign Up <span class="icon-up-right-arrow"></span>';
-                authButton.href = "login.html"; // Redirect to login
-            }
-        });
     </script>
 
 </body>
