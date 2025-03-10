@@ -220,8 +220,49 @@
 
 <!-- Right Side Login/Logout Button -->
 <div class="auth-container">
-    <a id="authButton" href="login.html">Login / Sign Up</a>
+    <button id="authButton">Login / Sign Up</button>
 </div>
+
+<button class="purchase-button" onclick="purchaseMembership()">Purchase Now</button>
+
+<script>
+    // Check if token exists in localStorage and update login button behavior
+    document.addEventListener("DOMContentLoaded", function () {
+        const authButton = document.getElementById("authButton");
+        const token = localStorage.getItem("authToken"); // Check for auth token
+
+        if (token) {
+            authButton.textContent = "Go to Dashboard"; 
+            authButton.onclick = function () {
+                window.location.href = "personal.html"; // Redirect to Personal Info if logged in
+            };
+        } else {
+            authButton.textContent = "Login / Sign Up"; 
+            authButton.onclick = function () {
+                window.location.href = "login.html"; // Redirect to Login page if not logged in
+            };
+        }
+    });
+
+    function purchaseMembership() {
+        const token = localStorage.getItem("authToken"); // Check if the user is logged in
+
+        // Fetch Membership Name & Number (Replace with actual values from your page)
+        const membershipName = "Diamond Elite"; // Example: Fetch from an element
+        const membershipNumber = 1; // Example: Fetch dynamically
+
+        // Store Membership Details in LocalStorage
+        localStorage.setItem("membershipCardName", membershipName);
+        localStorage.setItem("membershipCardNumber", membershipNumber);
+
+        // Redirect Based on Authentication
+        if (token) {
+            window.location.href = "personal.html"; // If logged in, go to personal info
+        } else {
+            window.location.href = "login.html"; // If not logged in, go to login first
+        }
+    }
+</script>
 
 <!-- Responsive Navigation Styles -->
 <style>
@@ -338,7 +379,7 @@
 </style>
 
 <!-- JavaScript for Menu Toggle & Login Button -->
-<script>
+<!-- <script>
     function toggleMenu() {
         document.getElementById("bottomNav").classList.toggle("show");
     }
@@ -355,7 +396,7 @@
             authButton.href = "login.html";
         }
     });
-</script>
+</script> -->
     </section>
         <!--Page Header End-->
 

@@ -219,10 +219,61 @@
     <a href="contact.html">Contact Us</a>
 </div>
 
-<!-- Right Side Login/Logout Button -->
-<div class="auth-container">
-    <a id="authButton" href="login.html">Login / Sign Up</a>
-</div>
+<style>
+    /* Styles for the Purchase Now Button */
+    .purchase-button {
+        position: fixed;
+        right: 20px;  /* Distance from the right edge */
+        top: 20px;    /* Distance from the top edge */
+        padding: 12px 24px;
+        background-color: green; /* Blue color */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease-in-out, transform 0.2s;
+    }
+
+    .purchase-button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        transform: scale(1.05); /* Slightly enlarges the button */
+    }
+</style>
+
+<!-- Purchase Button -->
+<button class="purchase-button" onclick="purchaseMembership()">Purchase Now</button>
+
+<script>
+    function purchaseMembership() {
+        console.log("Purchase button clicked!"); // Debugging log
+
+        // Retrieve user authentication token from localStorage
+        const token = localStorage.getItem("authToken");
+
+        // Replace with actual values dynamically fetched from your page
+        const membershipName = "Mystic Member"; // Example: Replace with actual name
+        const membershipNumber = 4; // Example: Replace with actual number
+
+        // Store Membership Details in LocalStorage
+        localStorage.setItem("membershipCardName", membershipName);
+        localStorage.setItem("membershipCardNumber", membershipNumber);
+
+        console.log("Stored Membership Name:", membershipName);
+        console.log("Stored Membership Number:", membershipNumber);
+
+        // Redirect Based on Authentication
+        if (token) {
+            console.log("User is logged in. Redirecting to personal.html...");
+            window.location.href = "personal.html"; // If logged in, go to personal info
+        } else {
+            console.log("User not logged in. Redirecting to login.html...");
+            window.location.href = "login.html"; // If not logged in, go to login first
+        }
+    }
+</script>
 
 <!-- Responsive Navigation Styles -->
 <style>
