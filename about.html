@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wish I Club</title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets\images\Wish Club Logo.JPG" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets\images\Wish Club Logo.JPG" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets\images\Wish Club Logo.JPG" />
-    <link rel="manifest" href="assets\images\Wish Club Logo.JPG" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
     <meta name="description" content="tecture HTML 5 Template " />
 
     <!-- fonts -->
@@ -121,10 +121,12 @@
     </div> -->
     <section class="main-slider" style="position: relative; width: 100%; height: 150vh; overflow: hidden;">
         <div class="main-slider__bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
-            <img src="assets/images/card_images/your-image.jpg" alt="Background Image" 
+            <video autoplay muted loop playsinline class="background-video" 
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-        </div>
-    </section>    
+                <source src="assets/images/card/WhatsApp Video 2025-03-08 at 09.44.56_39028ae3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>   
         <!-- Logo Inside Video -->
         <div class="video-logo" 
         style="position: absolute; top: 10px; left: 20px; text-align: left; z-index: 1000;">
@@ -136,7 +138,7 @@
     
         <!-- Bottom Navigation -->
         <div class="bottom-navigation" 
-        style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%); 
+        style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); 
         display: flex; gap: 10px; background: transparent; padding: 15px 30px; 
         border-radius: 10px; z-index: 1000;">
         <a href="index.html" 
@@ -158,33 +160,15 @@
         <a href="contact.html" 
             style="text-decoration: none; color: white; font-weight: bold; font-size: 20px; padding: 10px;">
             Contact Us
-        </a>  
+        </a>
 <!-- Right Aligned Login Button -->
 <div style="position: fixed; top: 20px; right: -250px; z-index: 2000;">
-    <a id="authButton" 
-    href="login.html" 
-    style="text-decoration: none; color: white; font-weight: bold; font-size: 20px; padding: 10px 20px; 
-    background: transparent; border-radius: 5px;">
-    Login / Sign Up
-</a>
+    <a href="login.html" 
+        style="text-decoration: none; color: white; font-weight: bold; font-size: 20px; padding: 10px 20px; 
+        background:transparent; border-radius: 5px;">
+        Login
+    </a>
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-const authToken = localStorage.getItem("authToken");
-const authButton = document.getElementById("authButton");
-
-if (authToken) {
-    // ✅ If a valid token exists, redirect to Dashboard
-    authButton.textContent = "Dashboard";
-    authButton.href = "dashboard.html";
-} else {
-    // ✅ If no token, keep "Login / Sign Up"
-    authButton.textContent = "Login / Sign Up";
-    authButton.href = "login.html";
-}
-});
-</script>
 
     </div>
     
@@ -211,12 +195,12 @@ if (authToken) {
                                 </div>
                             </div>
                             <div class="services-four__content">
-                                <h4 class="services-four__title"><a href="">Private beach Experience</a>
+                                <h4 class="services-four__title"><a href="services.html">Private beach Experience</a>
                                 </h4>
                                 <p class="services-four__text">Escape to Wish Island Club’s exclusive private beaches, where luxury meets tranquility. Relax on soft sands, savor romantic seaside dining, or unwind in a cabana as waves set the perfect ambiance.</p>
                             </div>
                             <div class="services-four__arrow">
-                                <a href=""><span class="icon-right-arrow"></span></a>
+                                <a href="services.html"><span class="icon-right-arrow"></span></a>
                             </div>
                         </div>
                     </div>
@@ -230,12 +214,12 @@ if (authToken) {
                                 </div>
                             </div>
                             <div class="services-four__content">
-                                <h4 class="services-four__title"><a href="">Yacht Experience</a>
+                                <h4 class="services-four__title"><a href="services.html">Yacht Experience</a>
                                 </h4>
                                 <p class="services-four__text">Set sail with Wish Island Club for a luxurious yacht tour, where adventure meets elegance. Enjoy pristine waters, hidden coves, gourmet service, and stunning views—perfect for any occasion.</p>
                             </div>
                             <div class="services-four__arrow">
-                                <a href=""><span class="icon-right-arrow"></span></a>
+                                <a href="services.html"><span class="icon-right-arrow"></span></a>
                             </div>
                         </div>
                     </div>
@@ -249,13 +233,13 @@ if (authToken) {
                                 </div>
                             </div>
                             <div class="services-four__content">
-                                <h4 class="services-four__title"><a href="">Island Event experience
+                                <h4 class="services-four__title"><a href="services.html">Island Event experience
                                     </a>
                                 </h4>
                                 <p class="services-four__text">Host an unforgettable event on a private island, where pristine beaches and azure waters set the perfect scene. From elegant weddings to corporate retreats, every detail is expertly crafted for perfection.</p>
                             </div>
                             <div class="services-four__arrow">
-                                <a href=""><span class="icon-right-arrow"></span></a>
+                                <a href="services.html"><span class="icon-right-arrow"></span></a>
                             </div>
                         </div>
                     </div>
@@ -796,35 +780,18 @@ if (authToken) {
         </section>
         <!--Testimonial Two End-->
 
+        
         <!--Site Footer Start-->
         <footer class="site-footer">
+            <!-- Background Shapes -->
             <div class="site-footer__shape-1 float-bob-x">
                 <img src="assets/images/shapes/site-footer-shape-1.png" alt="">
             </div>
             <div class="site-footer__shape-2 float-bob-y">
                 <img src="assets/images/shapes/site-footer-shape-2.png" alt="">
             </div>
-            <div class="site-footer__marquee">
-                <style>
-                    .site-footer__marquee .marquee_mode li {
-                        color: black; /* Change text color to black */
-                    }
-                </style>
-                <ul class="marquee_mode">
-                    <li>Luxury Stay Accommodations</li>
-                    <li>Mini Formula Track</li>
-                    <li>Equestrian & Adventure Park</li>
-                    <li>World-Class Dining & Entertainment</li>
-                    <li>Private Island Escapes</li>
-                    <li>Water Sports & Marine Adventures</li>
-                    <li>Wellness & Spa Retreats</li>
-                    <li>Exclusive Events & Celebrations</li>
-                    <li>Private Yacht & Jet Charters</li>
-                </ul>
-            </div>
-            
-            
-
+        
+            <!-- Footer Content -->
             <div class="container">
                 <div class="site-footer__top">
                     <div class="row">
@@ -928,7 +895,6 @@ if (authToken) {
             </div>
         </footer>
         <!--Site Footer End-->
-
 
     </div><!-- /.page-wrapper -->
 

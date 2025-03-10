@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Wish I Club </title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets\images\Wish Club Logo.JPG" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets\images\Wish Club Logo.JPG" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets\images\Wish Club Logo.JPG" />
-    <link rel="manifest" href="assets\images\Wish Club Logo.JPG" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
     <meta name="description" content="tecture HTML 5 Template " />
-
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,10 +116,10 @@
         </div>
     </div> -->
     <!-- End sidebar widget content -->
-    <section class="main-slider" style="position: relative; width: 100%; height: 99vh; overflow: hidden;">
+    <section class="main-slider" style="position: relative; width: 100%; height: 150vh; overflow: hidden;">
         <div class="main-slider__bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
             <video autoplay muted loop playsinline class="background-video" 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: fill;">
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                 <source src="assets/images/card_images/WhatsApp Video 2025-03-07 at 09.22.08_6f1fa380.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -160,31 +159,12 @@
     </a>
 <!-- Right Aligned Login Button -->
 <div style="position: fixed; top: 20px; right: -250px; z-index: 2000;">
-    <a id="authButton" 
-    href="login.html" 
-    style="text-decoration: none; color: white; font-weight: bold; font-size: 20px; padding: 10px 20px; 
-    background: transparent; border-radius: 5px;">
-    Login / Sign Up
-</a>
+    <a href="login.html" 
+        style="text-decoration: none; color: white; font-weight: bold; font-size: 20px; padding: 10px 20px; 
+        background:transparent; border-radius: 5px;">
+        Login
+    </a>
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-const authToken = localStorage.getItem("authToken");
-const authButton = document.getElementById("authButton");
-
-if (authToken) {
-    // ✅ If a valid token exists, redirect to Dashboard
-    authButton.textContent = "Dashboard";
-    authButton.href = "dashboard.html";
-} else {
-    // ✅ If no token, keep "Login / Sign Up"
-    authButton.textContent = "Login / Sign Up";
-    authButton.href = "login.html";
-}
-});
-</script>
-
 
     </div>
     
@@ -278,7 +258,7 @@ if (authToken) {
                             <img src="assets/images/card/crystal frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-two__title"><a href="project-details.html">Crystal Connoisseur</a></h3>
+                            <h3 class="project-two__title"><a href="project-details7.html">Crystal Connoisseur</a></h3>
                         </div>
                     </div>
                 </div>
@@ -289,7 +269,7 @@ if (authToken) {
                             <img src="assets/images/card/amber frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-two__title"><a href="project-details.html">Amber Advocate</a></h3>
+                            <h3 class="project-two__title"><a href="project-details6.html">Amber Advocate</a></h3>
                         </div>
                     </div>
                 </div>
@@ -300,7 +280,7 @@ if (authToken) {
                             <img src="assets/images/card/mystic frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-two__title"><a href="project-details.html">Mystic Member</a></h3>
+                            <h3 class="project-two__title"><a href="project-details3.html">Mystic Member</a></h3>
                         </div>
                     </div>
                 </div>
@@ -311,7 +291,7 @@ if (authToken) {
                             <img src="assets/images/card/sapphire frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-two__title"><a href="project-details.html">Sapphire Sentinel</a></h3>
+                            <h3 class="project-two__title"><a href="project-details8.html">Sapphire Sentinel</a></h3>
                         </div>
                     </div>
                 </div>
@@ -322,7 +302,7 @@ if (authToken) {
                             <img src="assets/images/card/pearl frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-two__title"><a href="project-details.html">Pearl Patron</a></h3>
+                            <h3 class="project-two__title"><a href="project-details9.html">Pearl Patron</a></h3>
                         </div>
                     </div>
                 </div>
@@ -333,7 +313,7 @@ if (authToken) {
                             <img src="assets/images/card/titanium frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-two__title"><a href="project-details.html">Titanium Treasure</a></h3>
+                            <h3 class="project-two__title"><a href="project-details4.html">Titanium Treasure</a></h3>
                         </div>
                     </div>
                 </div>
@@ -344,7 +324,7 @@ if (authToken) {
                             <img src="assets/images/card/aqua frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-two__title"><a href="project-details.html">Aqua Astra-Denala</a></h3>
+                            <h3 class="project-two__title"><a href="project-details5.html">Aqua Astra-Denala</a></h3>
                         </div>
                     </div>
                 </div>
