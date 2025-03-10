@@ -204,34 +204,160 @@
         </script>
     </head>
     
-    <body>
-        <div class="page-wrapper">
-            <div class="menu-bar">
-                <div class="logo-container">
-                    <img src="assets/images/Wish Club Logo.JPG" alt="Logo">
-                </div>
-                <div class="menu-text">
-                    <div><a href="index.html">Home</a></div>
-                    <div><a href="about.html">About Us</a></div>
-                    <div><a href="projects.html">Membership</a></div>
-                    <div><a href="contact.html">Contact Us</a></div>
-                </div>
-                
-               
-                <button class="login-button" onclick="purchaseMembership('Amber Advocate',7)">Purchase Now</button>
+   <!-- Menu Icon for Mobile -->
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-                <script>
-                    function purchaseMembership(cardName, cardNumber) {
-                        localStorage.setItem('membershipCardName', cardName);
-                        localStorage.setItem('membershipCardNumber', cardNumber);
-                        window.location.href = 'personal.html'; // Redirect to form page
-                    }
-                    </script>
-            </div>
-            
-            <div class="background-container"></div>
-        </div>
-    </body>
+<!-- Menu Icon for Mobile (Left Side) -->
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+<!-- Bottom Navigation (Left Side Dropdown) -->
+<div class="bottom-navigation" id="bottomNav">
+    <span class="close-menu" onclick="toggleMenu()">✖</span> <!-- Close Button -->
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Membership</a>
+    <a href="contact.html">Contact Us</a>
+</div>
+
+<!-- Right Side Login/Logout Button -->
+<div class="auth-container">
+    <a id="authButton" href="login.html">Login / Sign Up</a>
+</div>
+
+<!-- Responsive Navigation Styles -->
+<style>
+    /* Default Navigation (Desktop) */
+    .bottom-navigation {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Hidden by default for mobile */
+        width: 250px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        border-radius: 0;
+        text-align: left;
+        gap: 15px;
+        transition: left 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: flex-start;
+        z-index: 2000;
+    }
+
+    .bottom-navigation.show {
+        left: 0; /* Show menu */
+    }
+
+    .bottom-navigation a {
+        font-size: 18px;
+        display: block;
+        padding: 15px;
+        color: white;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        width: 100%;
+    }
+
+    .bottom-navigation a:hover {
+        color: #ffcc00;
+    }
+
+    /* Menu Icon (Left Side) */
+    .menu-icon {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        display: block;
+        z-index: 3000;
+    }
+
+    /* Close Button (Inside Menu) */
+    .close-menu {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+        display: block;
+    }
+
+    /* Login/Logout Button (Right Side) */
+    .auth-container {
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        z-index: 3000;
+    }
+
+    .auth-container a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 10px 15px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    .auth-container a:hover {
+        background: #ffcc00;
+        color: black;
+    }
+
+    /* Responsive Design for Mobile */
+    @media screen and (max-width: 768px) {
+        .bottom-navigation {
+            width: 100%; /* Full-screen on mobile */
+        }
+
+        .menu-icon {
+            font-size: 26px;
+            top: 10px;
+        }
+
+        .close-menu {
+            font-size: 30px;
+            right: 20px;
+        }
+
+        .auth-container {
+            top: 10px;
+            right: 15px;
+        }
+
+        .auth-container a {
+            font-size: 16px;
+            padding: 8px 12px;
+        }
+    }
+</style>
+
+<!-- JavaScript for Menu Toggle & Login Button -->
+<script>
+    function toggleMenu() {
+        document.getElementById("bottomNav").classList.toggle("show");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const authToken = localStorage.getItem("authToken");
+        const authButton = document.getElementById("authButton");
+
+        if (authToken) {
+            authButton.textContent = "Dashboard";
+            authButton.href = "dashboard.html";
+        } else {
+            authButton.textContent = "Login / Sign Up";
+            authButton.href = "login.html";
+        }
+    });
+</script>
+    </section>
         <!--Page Header End-->
 
         <!--Services Details Start-->
