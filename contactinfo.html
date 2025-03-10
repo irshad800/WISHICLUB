@@ -98,13 +98,34 @@
                             <input type="text" name="alternate-contact" id="alternate-contact" placeholder="Enter alternate contact">
                         </div>
         
-                        <!-- Submit Button -->
-                        <div class="field padding-bottom--24" style="display: flex; justify-content: center; align-items: center;">
-                            <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px;">
-                                Submit
-                            </button>
-                        </div>
-        
+                       <!-- Back and Submit Buttons -->
+<div class="field padding-bottom--24" style="display: flex; justify-content: center; align-items: center;">
+    <!-- Back Button -->
+    <button type="button" onclick="goBack()" 
+        style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px; margin-right: 10px;">
+        Back
+    </button>
+
+    <!-- Submit Button -->
+    <button type="submit" 
+        style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px;">
+        Submit
+    </button>
+</div>
+
+<!-- JavaScript for Back Button -->
+<script>
+    function goBack() {
+        console.log("Back button clicked!"); // Debugging log
+
+        if (window.history.length > 1) {
+            history.back(); // Go to the previous page
+        } else {
+            console.log("No history detected. Redirecting to personal.html...");
+            window.location.href = "personal.html"; // Replace with your actual previous page URL
+        }
+    }
+</script>
                     </form>
                 </div>
             </div>
