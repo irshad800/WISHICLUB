@@ -97,7 +97,8 @@
                             <label for="alternate-contact">Alternate Contact (Optional)</label>
                             <input type="text" name="alternate-contact" id="alternate-contact" placeholder="Enter alternate contact">
                         </div>
-        
+                        <p>Your Card Number: <span id="generated-card-number"></span></p>
+
                        <!-- Back and Submit Buttons -->
 <div class="field padding-bottom--24" style="display: flex; justify-content: center; align-items: center;">
     <!-- Back Button -->
@@ -107,7 +108,7 @@
     </button>
 
     <!-- Submit Button -->
-    <button type="button" 
+    <button id="submit-button" type="button" 
     style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px;"
     onclick="goToPaymentPage()">
     Submit
@@ -133,6 +134,52 @@ function goToPaymentPage() {
             window.location.href = "personal.html"; // Replace with your actual previous page URL
         }
     }
+
+
+    document.getElementById("submit-button").addEventListener("click", async function() {
+    const personalData = JSON.parse(localStorage.getItem("personalInfo"));
+    const token = localStorage.getItem("authToken"); // Assuming token is stored here
+
+    const contactData = {
+        homeAddress: {
+            street: document.getElementById("street").value,
+            city: document.getElementById("city").value,
+            state: document.getElementById("state").value,
+            postalCode: document.getElementById("postal-code").value,
+            country: document.getElementById("country").value
+        },
+        phoneNumber: document.getElementById("phone-number").value,
+        emailAddress: document.getElementById("email").value,
+        alternateContact: document.getElementById("alternate-contact").value,
+        cardNumber: localStorage.getItem("selectedCardNumber") // Assuming user selects a card before
+    };
+
+    const applicationData = { ...personalData, ...contactData };
+
+    try {
+        const response = await fetch("http://localhost:8080/api/application/submit-application", {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(applicationData)
+        });
+
+        const result = await response.json();
+        if (result.Success) {
+            alert(`Application Submitted! Member Card Number: ${result.memberCardNumber}`);
+            document.getElementById("generated-card-number").innerText = result.memberCardNumber;
+        } else {
+            alert(result.Message);
+        }
+    } catch (error) {
+        console.error("Error submitting application:", error);
+    }
+});
+
+
+
 </script>
                     </form>
                 </div>
