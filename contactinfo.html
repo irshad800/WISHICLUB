@@ -98,6 +98,8 @@
                             <input type="text" name="alternate-contact" id="alternate-contact" placeholder="Enter alternate contact">
                         </div>
                         <p>Your Card Number: <span id="generated-card-number"></span></p>
+<!-- Display Error Message Here -->
+<p id="error-message" style="color: red; font-weight: bold; display: none;"></p>
 
                        <!-- Back and Submit Buttons -->
 <div class="field padding-bottom--24" style="display: flex; justify-content: center; align-items: center;">
@@ -114,31 +116,24 @@
     Submit
 </button>
 
-<script>
+<!-- <script>
 function goToPaymentPage() {
-    window.location.href = 'paymentPage.html'; // Change 'payment.html' to the actual payment page URL
+    window.location.href = 'paymentPage.html'; 
 }
-</script>
+</script> -->
 
 </div>
 
 <!-- JavaScript for Back Button -->
 <script>
-    function goBack() {
-        console.log("Back button clicked!"); // Debugging log
-
-        if (window.history.length > 1) {
-            history.back(); // Go to the previous page
-        } else {
-            console.log("No history detected. Redirecting to personal.html...");
-            window.location.href = "personal.html"; // Replace with your actual previous page URL
-        }
-    }
-
-
-    document.getElementById("submit-button").addEventListener("click", async function() {
+  document.getElementById("submit-button").addEventListener("click", async function() {
     const personalData = JSON.parse(localStorage.getItem("personalInfo"));
-    const token = localStorage.getItem("authToken"); // Assuming token is stored here
+    const token = localStorage.getItem("authToken"); // User token
+
+    if (!personalData.cardNumber || !personalData.cardName) {
+        alert("❌ Card details are missing! Please select a membership plan.");
+        return;
+    }
 
     const contactData = {
         homeAddress: {
@@ -150,8 +145,7 @@ function goToPaymentPage() {
         },
         phoneNumber: document.getElementById("phone-number").value,
         emailAddress: document.getElementById("email").value,
-        alternateContact: document.getElementById("alternate-contact").value,
-        cardNumber: localStorage.getItem("selectedCardNumber") // Assuming user selects a card before
+        alternateContact: document.getElementById("alternate-contact").value
     };
 
     const applicationData = { ...personalData, ...contactData };
@@ -167,17 +161,31 @@ function goToPaymentPage() {
         });
 
         const result = await response.json();
+
         if (result.Success) {
-            alert(`Application Submitted! Member Card Number: ${result.memberCardNumber}`);
+            alert(`✅ Application Submitted Successfully! Member Card Number: ${result.memberCardNumber}`);
             document.getElementById("generated-card-number").innerText = result.memberCardNumber;
+            
+            // ✅ Redirect to payment page only if successful
+            window.location.href = "paymentPage.html";
         } else {
-            alert(result.Message);
+            // ❌ Display error message in the frontend if submission fails
+            showError(result.Message);
         }
     } catch (error) {
-        console.error("Error submitting application:", error);
+        console.error("❌ Error submitting application:", error);
+        showError("❌ An unexpected error occurred. Please try again later.");
     }
 });
 
+/**
+ * ✅ Function to Show Error Message on the Frontend
+ */
+function showError(message) {
+    const errorDiv = document.getElementById("error-message");
+    errorDiv.innerHTML = message;
+    errorDiv.style.display = "block"; // Make the error message visible
+}
 
 
 </script>

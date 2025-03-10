@@ -134,12 +134,15 @@
   <script>
     // Fetch the membership card name from localStorage
     document.addEventListener("DOMContentLoaded", function() {
-        let cardName = localStorage.getItem('membershipCardName') || 'Membership Plan';
-        document.getElementById("membership-title").textContent = cardName;
-    });
+    let cardName = localStorage.getItem('membershipCardName') || 'Membership Plan';
+    let cardNumber = localStorage.getItem('membershipCardNumber');
 
+    document.getElementById("membership-title").textContent = cardName;
+});
 
-    document.getElementById("next-button").addEventListener("click", function() {
+ 
+
+document.getElementById("next-button").addEventListener("click", function() {
     const personalData = {
         fullName: document.querySelector("[name='fullname']").value,
         dateOfBirth: document.querySelector("[name='dob']").value,
@@ -147,7 +150,9 @@
         nationality: document.querySelector("[name='nationality']").value,
         maritalStatus: document.querySelector("[name='marital-status']").value,
         preferredContactMethod: document.querySelector("[name='contact-method']").value,
-        contactValue: document.querySelector("[name='contact-value']").value
+        contactValue: document.querySelector("[name='contact-value']").value,
+        cardName: localStorage.getItem('membershipCardName'), // Store Card Name
+        cardNumber: localStorage.getItem('membershipCardNumber') // Store Card Number
     };
 
     localStorage.setItem("personalInfo", JSON.stringify(personalData)); 
