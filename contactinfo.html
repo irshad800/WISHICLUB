@@ -107,10 +107,18 @@
     </button>
 
     <!-- Submit Button -->
-    <button type="submit" 
-        style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px;">
-        Submit
-    </button>
+    <button type="button" 
+    style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px;"
+    onclick="goToPaymentPage()">
+    Submit
+</button>
+
+<script>
+function goToPaymentPage() {
+    window.location.href = 'paymentPage.html'; // Change 'payment.html' to the actual payment page URL
+}
+</script>
+
 </div>
 
 <!-- JavaScript for Back Button -->

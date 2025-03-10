@@ -218,14 +218,15 @@
                 </div>
                 
                 
-                <button class="login-button" onclick="purchaseMembership('Sapphire Sentinel')">Purchase Now</button>
+                <button class="login-button" onclick="purchaseMembership('Sapphire Sentinel',9)">Purchase Now</button>
 
                 <script>
-                function purchaseMembership(cardName) {
-                    localStorage.setItem('membershipCardName', cardName);
-                    window.location.href = 'personal.html'; // Redirect to form page
-                }
-                </script>
+                    function purchaseMembership(cardName, cardNumber) {
+                        localStorage.setItem('membershipCardName', cardName);
+                        localStorage.setItem('membershipCardNumber', cardNumber);
+                        window.location.href = 'personal.html'; // Redirect to form page
+                    }
+                    </script>
             </div>
             
             <div class="background-container"></div>
