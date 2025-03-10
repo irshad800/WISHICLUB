@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+        body {
+            background-color: #f5eee7;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+        }
+        .container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        .product-img {
+            width: 48%;
+            height: auto;
+            border-radius: 10px;
+            margin-right: 4%;
+        }
+        .product-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .payment-card-body {
+            padding: 24px 1rem !important;
+        }
+        .super-price {
+            font-size: 22px;
+        }
+        .free-button {
+            background: #1565c0;
+            height: 52px;
+            font-size: 15px;
+            border-radius: 8px;
+            color: white;
+        }
+        .card-logo {
+            width: 40px;
+            height: auto;
+            margin-left: 10px;
+        }
+        .card-input-container {
+            display: flex;
+            align-items: center;
+        }
+        .summary-card {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row g-3 w-75">
+            <!-- Payment Method Section -->
+            <div class="col-md-6">
+                <span>Payment Method</span>
+                <div class="card p-3">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header p-0">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-light btn-block text-left p-3 rounded-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <span>Credit Card</span>
+                                            <div class="icons">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png" width="30">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" width="30">
+                                            </div>
+                                        </div>
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseOne" class="collapse show">
+                                <div class="card-body payment-card-body">
+                                    <span class="font-weight-normal card-text">Cardholder Name</span>
+                                    <input type="text" class="form-control mb-3" placeholder="Cardholder Name">
+                                    <span class="font-weight-normal card-text">Card Number</span>
+                                    <div class="card-input-container">
+                                        <input type="text" class="form-control mb-3" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCardNumber(); detectCardType();">
+                                        <img id="cardLogo" class="card-logo" src="" alt="">
+                                    </div>
+                                    <div class="row mt-3 mb-3">
+                                        <div class="col-md-6">
+                                            <span class="font-weight-normal card-text">Expiry Date</span>
+                                            <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" maxlength="5" oninput="formatExpiryDate()">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="font-weight-normal card-text">CVC/CVV</span>
+                                            <input type="text" class="form-control" id="cvv" placeholder="000" maxlength="3">
+                                        </div>
+                                    </div>
+                                    <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Your transaction is secured</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Summary Section -->
+            <div class="col-md-6">
+                <span>Summary</span>
+                <div class="card summary-card">
+                    <div class="product-container">
+                        <img src="assets/images/card_images/DIAMOND.png" class="product-img" alt="Front Card Image">
+                        <img src="assets/images/card_images/DIAMOND BACK.png" class="product-img" alt="Back Card Image">
+                    </div>
+                    <div class="p-3">
+                        <h5>Diamond Elite</h5>
+                        <p class="text-muted">Access premium features with priority support</p>
+                        <span class="super-price">$9.99</span>
+                        <span class="super-month">/Month</span>
+                    </div>
+                    <hr class="mt-0 line">
+                    <div class="p-3">
+                        <p>Subtotal: <span class="float-right">$14.98</span></p>
+                        <p>VAT (10%): <span class="float-right">$1.50</span></p>
+                        <p><b>Total: <span class="float-right">$16.48</span></b></p>
+                        <button class="btn btn-primary btn-block free-button">Pay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function detectCardType() {
+            let cardNumber = document.getElementById("cardNumber").value;
+            let cardLogo = document.getElementById("cardLogo");
+            
+            if (/^4/.test(cardNumber)) {
+                cardLogo.src = "https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg";
+            } else if (/^5[1-5]/.test(cardNumber)) {
+                cardLogo.src = "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg";
+            } else if (/^3[47]/.test(cardNumber)) {
+                cardLogo.src = "https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg";
+            } else {
+                cardLogo.src = "";
+            }
+        }
+
+        function formatCardNumber() {
+            let input = document.getElementById("cardNumber");
+            input.value = input.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim().slice(0, 19);
+        }
+        
+        function formatExpiryDate() {
+            let input = document.getElementById("expiryDate");
+            input.value = input.value.replace(/\D/g, '').replace(/(\d{2})(\d{1,2})/, '$1/$2').slice(0, 5);
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        
+    
+        <!--Site Footer Start-->
+        <footer class="site-footer">
+            <div class="site-footer__shape-1 float-bob-x">
+                <img src="assets/images/shapes/site-footer-shape-1.png" alt="">
+            </div>
+            <div class="site-footer__shape-2 float-bob-y">
+                <img src="assets/images/shapes/site-footer-shape-2.png" alt="">
+            </div>
+            <div class="site-footer__marquee">
+                <style>
+                    .site-footer__marquee .marquee_mode li {
+                        color: black; /* Change text color to black */
+                    }
+                </style>
+                <ul class="marquee_mode">
+                    <li>Luxury Stay Accommodations</li>
+                    <li>Mini Formula Track</li>
+                    <li>Equestrian & Adventure Park</li>
+                    <li>World-Class Dining & Entertainment</li>
+                    <li>Private Island Escapes</li>
+                    <li>Water Sports & Marine Adventures</li>
+                    <li>Wellness & Spa Retreats</li>
+                    <li>Exclusive Events & Celebrations</li>
+                    <li>Private Yacht & Jet Charters</li>
+                </ul>
+            </div>
+            
+            
+
+            <div class="container">
+                <div class="site-footer__top">
+                    <div class="row">
+                        <!-- About Section -->
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                            <div class="footer-widget__column footer-widget__about">
+                                <div class="logo-box">
+                                    <a href="index.html" aria-label="logo image">
+                                        <img src="assets/images/Wish Club Logo.JPG" width="150" alt="Wish Club Logo" />
+                                    </a>
+                                </div>
+                                <p class="footer-widget__about-text">
+                                    The Wish Island Membership Club is a haven of luxury, exclusivity, and personalized experiences, where every moment is crafted for those who seek the finest in life.
+                                </p>
+                                <div class="main-menu__social">
+                                    <a href="https://www.youtube.com/@WishIslandClub"><i class="fab fa-youtube"></i></a>
+                                    <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Useful Links -->
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                            <div class="footer-widget__column footer-widget__usefull-link">
+                                <div class="footer-widget__title-box">
+                                    <h3 class="footer-widget__title">Useful Links</h3>
+                                </div>
+                                <ul class="footer-widget__link list-unstyled">
+                                    <li><a href="contact.html">Our Support</a></li>
+                                    <li><a href="about.html">Our Company</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="contact.html">Write For Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+        
+                        <!-- Instagram Section -->
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                            <div class="footer-widget__column footer-widget__instagram">
+                                <div class="footer-widget__title-box">
+                                    <h3 class="footer-widget__title">Instagram</h3>
+                                </div>
+                                <ul class="footer-widget__instagram-list list-unstyled clearfix">
+                                    <li>
+                                        <div class="footer-widget__instagram-img">
+                                            <img src="assets/images/resources/footer-widget-instagram-img-1.jpg" alt="">
+                                            <a href="#"><span class="fab fa-instagram"></span></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="footer-widget__instagram-img">
+                                            <img src="assets/images/resources/footer-widget-instagram-img-2.jpg" alt="">
+                                            <a href="#"><span class="fab fa-instagram"></span></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="footer-widget__instagram-img">
+                                            <img src="assets/images/resources/footer-widget-instagram-img-3.jpg" alt="">
+                                            <a href="#"><span class="fab fa-instagram"></span></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="footer-widget__instagram-img">
+                                            <img src="assets/images/resources/footer-widget-instagram-img-4.jpg" alt="">
+                                            <a href="#"><span class="fab fa-instagram"></span></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="footer-widget__instagram-img">
+                                            <img src="assets/images/resources/footer-widget-instagram-img-5.jpg" alt="">
+                                            <a href="#"><span class="fab fa-instagram"></span></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="footer-widget__instagram-img">
+                                            <img src="assets/images/resources/footer-widget-instagram-img-6.jpg" alt="">
+                                            <a href="#"><span class="fab fa-instagram"></span></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Footer Bottom Section -->
+            <div class="site-footer__bottom">
+                <div class="container">
+                    <div class="site-footer__bottom-inner">
+                        <p class="site-footer__bottom-text">© 2025 Copyright <a href="#">Wish I Club</a> | All rights reserved</p>
+                        <ul class="list-unstyled site-footer__bottom-menu">
+                            <li><a href="about.html">Privacy & Policy</a></li>
+                            <li><a href="about.html">Terms of Use</a></li>
+                            <li><a href="about.html">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--Site Footer End-->
+
+
+    </div><!-- /.page-wrapper -->
+
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img src="assets/images/resources/logo-1.png" width="150"
+                        alt="" /></a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:needhelp@packageName__.com">needhelp@tecture.com</a>
+                </li>
+                <li>
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:666-888-0000">666 888 0000</a>
+                </li>
+            </ul><!-- /.mobile-nav__contact -->
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-facebook-square"></a>
+                    <a href="#" class="fab fa-pinterest-p"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                </div><!-- /.mobile-nav__social -->
+            </div><!-- /.mobile-nav__top -->
+
+
+
+        </div>
+        <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    <div class="search-popup">
+        <div class="search-popup__overlay search-toggler"></div>
+        <!-- /.search-popup__overlay -->
+        <div class="search-popup__content">
+            <form action="#">
+                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+                <input type="text" id="search" placeholder="Search Here..." />
+                <button type="submit" aria-label="search submit" class="thm-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <!-- /.search-popup__content -->
+    </div>
+    <!-- /.search-popup -->
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+        <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
+        <span class="scroll-to-top__text"> Go Back Top</span>
+    </a>
+
+
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jarallax.min.js"></script>
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/jquery.circle-progress.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/wNumb.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/jquery.circleType.js"></script>
+    <script src="assets/js/jquery.lettering.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/marquee.min.js"></script>
+    <script src="assets/js/countdown.min.js"></script>
+    <script src="assets/js/jquery-sidebar-content.js"></script>
+    <script src="assets/js/twentytwenty.js"></script>
+    <script src="assets/js/jquery.event.move.js"></script>
+    <script src="assets/js/gsap/gsap.js"></script>
+    <script src="assets/js/gsap/ScrollTrigger.js"></script>
+    <script src="assets/js/gsap/SplitText.js"></script>
+
+
+
+
+    <!-- template js -->
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
