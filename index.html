@@ -57,6 +57,7 @@
     <!-- template styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="new.css">
 </head>
 
 <body class="body-bg-color-1">
@@ -110,206 +111,167 @@
     
     <section class="main-slider" style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
         <div class="main-slider__bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
-            <video autoplay muted loop playsinline class="background-video" 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: fill;">
-                <source src="assets\images\WhatsApp Video 2025-03-07 at 4.04.35 PM.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+           
         </div>
-    
-        <!-- Logo Inside Video -->
-        <div class="video-logo" 
-        style="position: absolute; top: 10px; left: 20px; text-align: left; z-index: 1000;">
-        <a href="index.html">
-            <img src="assets/images/Wish Club Logo.JPG" alt="Wish Club Logo" 
-                style="height: 100px; width: auto; filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.5));">
-        </a>
-    </div>
-    <!-- Menu Icon for Mobile -->
-<div class="menu-icon" onclick="toggleMenu()">☰</div>
-
-<!-- Menu Icon for Mobile (Left Side) -->
-<div class="menu-icon" onclick="toggleMenu()">☰</div>
-
-<!-- Bottom Navigation (Left Side Dropdown) -->
-<div class="bottom-navigation" id="bottomNav">
-    <span class="close-menu" onclick="toggleMenu()">✖</span> <!-- Close Button -->
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Membership</a>
-    <a href="contact.html">Contact Us</a>
-</div>
-
-<!-- Right Side Login/Logout Button -->
-<div class="auth-container">
-    <a id="authButton" href="login.html">Login / Sign Up</a>
-</div>
-
-<!-- Responsive Navigation Styles -->
-<style>
-    /* Default Navigation (Desktop) */
-    .bottom-navigation {
-        position: fixed;
-        top: 0;
-        left: -100%; /* Hidden by default for mobile */
-        width: 250px;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.9);
-        padding: 20px;
-        border-radius: 0;
-        text-align: left;
-        gap: 15px;
-        transition: left 0.3s ease-in-out;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: flex-start;
-        z-index: 2000;
-    }
-
-    .bottom-navigation.show {
-        left: 0; /* Show menu */
-    }
-
-    .bottom-navigation a {
-        font-size: 18px;
-        display: block;
-        padding: 15px;
-        color: white;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        width: 100%;
-    }
-
-    .bottom-navigation a:hover {
-        color: #ffcc00;
-    }
-
-    /* Menu Icon (Left Side) */
-    .menu-icon {
-        position: fixed;
-        top: 15px;
-        left: 15px;
-        font-size: 28px;
-        color: white;
-        cursor: pointer;
-        display: block;
-        z-index: 3000;
-    }
-
-    /* Close Button (Inside Menu) */
-    .close-menu {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 24px;
-        cursor: pointer;
-        color: white;
-        display: block;
-    }
-
-    /* Login/Logout Button (Right Side) */
-    .auth-container {
-        position: fixed;
-        top: 15px;
-        right: 20px;
-        z-index: 3000;
-    }
-
-    .auth-container a {
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        font-size: 18px;
-        padding: 10px 15px;
-        background: rgba(0, 0, 0, 0.7);
-        border-radius: 5px;
-        transition: background 0.3s;
-    }
-
-    .auth-container a:hover {
-        background: #ffcc00;
-        color: black;
-    }
-
-    /* Responsive Design for Mobile */
-    @media screen and (max-width: 768px) {
-        .bottom-navigation {
-            width: 100%; /* Full-screen on mobile */
-        }
-
-        .menu-icon {
-            font-size: 26px;
-            top: 10px;
-        }
-
-        .close-menu {
-            font-size: 30px;
-            right: 20px;
-        }
-
-        .auth-container {
-            top: 10px;
-            right: 15px;
-        }
-
-        .auth-container a {
-            font-size: 16px;
-            padding: 8px 12px;
-        }
-    }
-</style>
-
-<!-- JavaScript for Menu Toggle & Login Button -->
-<script>
-    function toggleMenu() {
-        document.getElementById("bottomNav").classList.toggle("show");
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const authToken = localStorage.getItem("authToken");
-        const authButton = document.getElementById("authButton");
-
-        if (authToken) {
-            authButton.textContent = "Dashboard";
-            authButton.href = "dashboard.html";
-        } else {
-            authButton.textContent = "Login / Sign Up";
-            authButton.href = "login.html";
-        }
-    });
-</script>
-    </section>
-<div style="position: fixed; top: 20px; right: -250px; z-index: 2000;">
-    <a id="authButton" 
-    href="login.html" 
-    style="text-decoration: none; color: white; font-weight: bold; font-size: 20px; padding: 10px 20px; 
-    background: transparent; border-radius: 5px;">
-    Login / Sign Up
-</a>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-const authToken = localStorage.getItem("authToken");
-const authButton = document.getElementById("authButton");
-
-if (authToken) {
-    // ✅ If a valid token exists, redirect to Dashboard
-    authButton.textContent = "Dashboard";
-    authButton.href = "dashboard.html";
-} else {
-    // ✅ If no token, keep "Login / Sign Up"
-    authButton.textContent = "Login / Sign Up";
-    authButton.href = "login.html";
-}
-});
-</script>
+        <section>
+                <div class="indicator"></div>
+            
+                <nav>
+                  <div>
+                    <div class="svg-container">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+                        />
+                      </svg>
+                    </div>
+                    <div>Globe Express</div>
+                  </div>
+                  <div>
+                    <div class="active">Home</div>
+                    <div>Holidays</div>
+                    <div>Destinations</div>
+                    <div>Flights</div>
+                    <div>Offers</div>
+                    <div>Contact</div>
+                    <div class="svg-container">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="svg-container">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </nav>
+            
+                <div id="demo"></div>
+            
+                <div class="details" id="details-even">
+                  <div class="place-box">
+                    <div class="text">Switzerland Alps</div>
+                  </div>
+                  <div class="title-box-1"><div class="title-1">SAINT</div></div>
+                  <div class="title-box-2"><div class="title-2">ANTONIEN</div></div>
+                  <div class="desc">
+                    Tucked away in the Switzerland Alps, Saint Antönien offers an idyllic retreat for those seeking tranquility and adventure alike. It's a hidden gem for backcountry skiing in winter and boasts lush trails for hiking and mountain biking during the warmer months.
+                  </div>
+                  <div class="cta">
+                    <button class="bookmark">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                    <button class="discover">Discover Location</button>
+                  </div>
+                </div>
+            
+                <div class="details" id="details-odd">
+                  <div class="place-box">
+                    <div class="text">Switzerland Alps</div>
+                  </div>
+                  <div class="title-box-1"><div class="title-1">SAINT </div></div>
+                  <div class="title-box-2"><div class="title-2">ANTONIEN</div></div>
+                  <div class="desc">
+                    Tucked away in the Switzerland Alps, Saint Antönien offers an idyllic retreat for those seeking tranquility and adventure alike. It's a hidden gem for backcountry skiing in winter and boasts lush trails for hiking and mountain biking during the warmer months.
+                  </div>
+                  <div class="cta">
+                    <button class="bookmark">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                    <button class="discover">Discover Location</button>
+                  </div>
+                </div>
+            
+                <div class="pagination" id="pagination">
+                  <div class="arrow arrow-left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 19.5L8.25 12l7.5-7.5"
+                      />
+                    </svg>
+                  </div>
+                  <div class="arrow arrow-right">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                  </div>
+                  <div class="progress-sub-container" >
+                    <div class="progress-sub-background" >
+                        <div class="progress-sub-foreground" ></div>
+                    </div>
+                </div>
+                <div class="slide-numbers" id="slide-numbers"></div>
+                </div>
+            
+                <div class="cover" ></div>
+        </section>  
 
     </div>
     
     </section>
-    
-        
         
         <!--Main Sllider Start -->
 
@@ -349,21 +311,53 @@ if (authToken) {
                                 <div class="section-title sec-title-animation animation-style2">
                                     <h2 class="section-title__title title-animation">Purposes</h2>
                                 </div>
+                                
+                                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
+                                <style>
+                                    /* Import Roboto font from Google Fonts */
+                                    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+                                
+                                    .section-title__title {
+                                        font-family: "Roboto", sans-serif; /* Set font to Roboto */
+                                    }
+                                </style>                                
                                 <div class="about-one__design-make">
                                     <div class="about-one__design-make-img">
-                                        <img src="assets/images/resources/about-one-design-make-img-1.jpg" alt="">
+                                        <img src="assets/images/Wish_Club_Logo-removebg-preview.png" alt="">
                                     </div>
                                     <div class="about-one__design-make-content">
-                                        <h5 class="about-one__design-make-title">The Wish Island Membership Club invites you to experience a world of supreme luxury and
+                                        <h5 class="about-one__design-make-title">
+                                            The Wish Island Membership Club invites you to experience a world of supreme luxury and
                                             exclusivity. Designed for those who seek the finest in life, our club offers a unique blend of
                                             personalized services, breathtaking environments, and exceptional experiences tailored to
-                                            your every desire.</h5>
-                                        <p class="about-one__design-make-text">Our club isn’t just a place it’s a lifestyle. Whether you’re indulging in our wellness and health
+                                            your every desire.
+                                        </h5>
+                                        <p class="about-one__design-make-text">
+                                            Our club isn’t just a place—it’s a lifestyle. Whether you’re indulging in our wellness and health
                                             centers, enjoying bespoke events, or unwinding in complete privacy, membership at Wish
                                             Island grants you privileges like no other. Every moment is an opportunity to immerse
-                                            yourself in the beauty, serenity, and unmatched exclusivity that our club offers.</p>
+                                            yourself in the beauty, serenity, and unmatched exclusivity that our club offers.
+                                        </p>
                                     </div>
                                 </div>
+                                
+                                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
+                                <style>
+                                    .about-one__design-make-content {
+                                        font-family: "Times New Roman", Times, serif; /* Set font to Times New Roman */
+                                        text-align: justify; /* Justify text */
+                                    }
+                                
+                                    .about-one__design-make-title {
+                                        font-family: "Times New Roman", Times, serif; /* Apply font */
+                                        text-align: justify; /* Justify heading text */
+                                    }
+                                
+                                    .about-one__design-make-text {
+                                        font-family: "Times New Roman", Times, serif; /* Apply font */
+                                        text-align: justify; /* Justify paragraph text */
+                                    }
+                                </style>                                
                             </div>
                         </div>
                     </div>
@@ -423,9 +417,19 @@ if (authToken) {
             <div class="projects-one__top">
                 <div class="container">
                     <div class="projects-one__top-inner">
-                        <div class="section-title text-left sec-title-animation animation-style2">
+                        <div class="section-title sec-title-animation animation-style2">
                             <h2 class="section-title__title title-animation">Membership Packages</h2>
                         </div>
+                        
+                        <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
+                        <style>
+                            /* Import Roboto font from Google Fonts */
+                            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+                        
+                            .section-title__title {
+                                font-family: "Roboto", sans-serif; /* Set font to Roboto */
+                            }
+                        </style>                        
                         <div class="projects-one__filter-box">
                             <ul class="projects-one__filter style1 post-filter list-unstyled clearfix">
                                 <li data-filter=".filter-item" class="active"><span class="filter-text">All</span></li>
@@ -694,11 +698,34 @@ if (authToken) {
         <section class="design-interior">
             <div class="section-shape-1" style="background-image: url(assets/images/shapes/section-shape-1.png);"></div>
             <div class="container">
-                <div class="section-title text-left sec-title-animation animation-style2">
+                <div class="section-title sec-title-animation animation-style2">
                     <h2 class="section-title__title title-animation">Featured Activities and Event</h2>
                 </div>
-                <h5>Our members enjoy a curated selection of exclusive activities and luxurious amenities that
-                    cater to a wide range of interests. Some of our most popular features include:</h5>
+                
+                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
+                <style>
+                    /* Import Roboto font from Google Fonts */
+                    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+                
+                    .section-title__title {
+                        font-family: "Roboto", sans-serif; /* Set font to Roboto */
+                    }
+                </style>                
+<h5 class="exclusive-features-text">
+    Our members enjoy a curated selection of exclusive activities and luxurious amenities that
+    cater to a wide range of interests. Some of our most popular features include:
+</h5>
+
+<!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
+<style>
+    /* Import Abril Fatface font from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+    .exclusive-features-text {
+        font-family: "Abril Fatface", cursive; /* Set font to Abril Fatface */
+        font-weight: normal; /* Keep normal weight for a balanced look */
+    }
+</style>
                 <div class="design-interior__inner">
                     <div class="row">
                         <div class="col-xl-10">
@@ -709,33 +736,49 @@ if (authToken) {
                                 <ul class="list-unstyled design-interior__list">
                                     <li>
                                         <div class="design-interior__single">
-                                            <p class="design-interior__text">Explore the open waters aboard our fleet of luxury yachts. Whether you&#39;re a seasoned sailor
+                                            <p class="design-interior__text">
+                                                Explore the open waters aboard our fleet of luxury yachts. Whether you're a seasoned sailor
                                                 or a beginner, we offer guided sailing experiences, private charters, and regular sailing
-                                                events for our community.</p>
+                                                events for our community.
+                                            </p>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="design-interior__single">
-                                            <p class="design-interior__text">Indulge in world-class cuisine at our gourmet restaurants, where renowned chefs craft
+                                            <p class="design-interior__text">
+                                                Indulge in world-class cuisine at our gourmet restaurants, where renowned chefs craft
                                                 exquisite dishes using the freshest ingredients. Our dining experiences are elevated with
-                                                exclusive wine-tasting events and chef-hosted culinary evenings.</p>
+                                                exclusive wine-tasting events and chef-hosted culinary evenings.
+                                            </p>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="design-interior__single">
-                                            <p class="design-interior__text">Relax and rejuvenate in our state-of-the-art spa, offering a variety of treatments tailored to
+                                            <p class="design-interior__text">
+                                                Relax and rejuvenate in our state-of-the-art spa, offering a variety of treatments tailored to
                                                 your needs. From massages to facials, our spa services focus on enhancing your well-being.
                                                 In addition, our yoga retreats and wellness programs provide a peaceful escape to restore
-                                                mind, body, and soul.</p>
+                                                mind, body, and soul.
+                                            </p>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="design-interior__single">
-                                            <p class="design-interior__text">Stay active with our championship-level golf course, fitness center, and wide range of
-                                                recreational activities, ensuring there&#39;s something for everyone to enjoy.</p>
+                                            <p class="design-interior__text">
+                                                Stay active with our championship-level golf course, fitness center, and wide range of
+                                                recreational activities, ensuring there's something for everyone to enjoy.
+                                            </p>
                                         </div>
                                     </li>
                                 </ul>
+                                
+                                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
+                                <style>
+                                    .design-interior__text {
+                                        font-family: "Times New Roman", Times, serif; /* Set font to Times New Roman */
+                                        text-align: justify; /* Justify text for better readability */
+                                    }
+                                </style>                                
                             </div>
                         </div>
                         <div class="col-xl-2">
@@ -758,6 +801,17 @@ if (authToken) {
                         What Our Clients Say
                     </h2>
                 </div>
+                
+                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
+                <style>
+                    /* Import Roboto font from Google Fonts */
+                    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+                
+                    .section-title__title {
+                        font-family: "Roboto", sans-serif; /* Set font to Roboto */
+                        font-weight: 500; /* Medium weight for a balanced look */
+                    }
+                </style>                
                 <div class="testimonial-two__bottom">
                     <div class="testimonial-slider-container">
                         <button id="prevBtn" class="slider-btn">❮</button>
@@ -1018,40 +1072,68 @@ if (authToken) {
         <section class="awards-one">
             <div class="section-shape-1" style="background-image: url(assets/images/shapes/section-shape-1.png);"></div>
             <div class="container">
-                <div class="section-title text-center sec-title-animation animation-style2">
-                    <h2 class="section-title__title title-animation">Overview</h2>
+                <div class="section-title text-center sec-title-animation animation-style1">
+                    <h2 class="section-title__title title-animation">
+                        Overview
+                    </h2>
                 </div>
+                
+                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
+                <style>
+                    /* Import Roboto font from Google Fonts */
+                    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+                
+                    .section-title__title {
+                        font-family: "Roboto", sans-serif; /* Set font to Roboto */
+                        font-weight: 500; /* Medium weight for a balanced look */
+                    }
+                </style>
+                
                 <div class="row">
                     <div class="col-xl-7">
                         <div class="awards-one__left">
                             <ul class="list-unstyled awards-one__list">
                                 <li class="wow fadeInLeft" data-wow-delay="100ms">
                                     <div class="awards-one__title-box">
-                                        <h3 class="awards-one__title">Welcome to the Wish Island Membership Club, where luxury and exclusivity intertwine to
+                                        <h3 class="awards-one__title">
+                                            Welcome to the Wish Island Membership Club, where luxury and exclusivity intertwine to
                                             create an extraordinary experience like no other. Established with a vision to provide a
-                                            sanctuary of indulgence and serenity, our club offers more than just a destination it offers a
-                                            lifestyle.</h3>
-                                        </div>
+                                            sanctuary of indulgence and serenity, our club offers more than just a destination—it offers a
+                                            lifestyle.
+                                        </h3>
+                                    </div>
                                 </li>
                                 <li class="wow fadeInLeft" data-wow-delay="200ms">
                                     <div class="awards-one__title-box">
-                                        <h3 class="awards-one__title">Rooted in the values of sophistication, personalized service, and environmental stewardship,
+                                        <h3 class="awards-one__title">
+                                            Rooted in the values of sophistication, personalized service, and environmental stewardship,
                                             Wish Island is a curated blend of leisure, relaxation, and adventure. Nestled within a
                                             collection of super-luxury private islands, we offer an elite community experience, designed
-                                            for those who seek both tranquility and excitement.</h3>
+                                            for those who seek both tranquility and excitement.
+                                        </h3>
                                     </div>
                                 </li>
                                 <li class="wow fadeInLeft" data-wow-delay="400ms">
                                     <div class="awards-one__title-box">
-                                        <h3 class="awards-one__title">From stunning overwater and underwater villas to world-class dining and wellness, Wish
+                                        <h3 class="awards-one__title">
+                                            From stunning overwater and underwater villas to world-class dining and wellness, Wish
                                             Island Membership Club is a place where your desires are effortlessly met and every
                                             moment is a step closer to your dream escape. Unique, immersive, and truly unforgettable,
-                                            Wish Island is where your journey to unparalleled luxury begins.</h3>
+                                            Wish Island is where your journey to unparalleled luxury begins.
+                                        </h3>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
+                
+                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
+                <style>
+                    .awards-one__title {
+                        font-family: "Times New Roman", Times, serif; /* Set font to Times New Roman */
+                        text-align: justify; /* Justify text for a structured appearance */
+                    }
+                </style>                
                     <div class="col-xl-5">
                         <div class="awards-one__right wow slideInRight" data-wow-delay="100ms"
                             data-wow-duration="2500ms">
@@ -1342,6 +1424,7 @@ if (authToken) {
 
     <!-- template js -->
     <script src="assets/js/script.js"></script>
+    <script src="new.js"></script>
 </body>
 
 </html>
