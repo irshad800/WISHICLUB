@@ -1,75 +1,77 @@
 const data = [
   {
-      place:'Switzerland Alps',
-      title:'SAINT',
-      title2:'ANTONIEN',
-      description:'Tucked away in the Switzerland Alps, Saint Antönien offers an idyllic retreat for those seeking tranquility and adventure alike. It\'s a hidden gem for backcountry skiing in winter and boasts lush trails for hiking and mountain biking during the warmer months.',
-      image:'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685003/uploads/myczywv9gabgzmqpuj05.png'
-  },
-  {
-      place:'Japan Alps',
-      title:'NANGANO',
-      title2:'PREFECTURE',
-      description:'Nagano Prefecture, set within the majestic Japan Alps, is a cultural treasure trove with its historic shrines and temples, particularly the famous Zenkō-ji. The region is also a hotspot for skiing and snowboarding, offering some of the country\'s best powder.',
-      image:'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685045/uploads/bcqltfesftgosjnkr1bd.png'
-  },
-  {
-      place:'Sahara Desert - Morocco',
-      title:'MARRAKECH',
-      title2:'MEROUGA',
-      description:'The journey from the vibrant souks and palaces of Marrakech to the tranquil, starlit sands of Merzouga showcases the diverse splendor of Morocco. Camel treks and desert camps offer an unforgettable immersion into the nomadic way of life.',
-      image:'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685083/uploads/ozrpkewpzjqdkpcyna49.png'
-  },
-  {
-      place:'Sierra Nevada - USA',
-      title:'YOSEMITE',
-      title2:'NATIONAL PARAK',
-      description:'Yosemite National Park is a showcase of the American wilderness, revered for its towering granite monoliths, ancient giant sequoias, and thundering waterfalls. The park offers year-round recreational activities, from rock climbing to serene valley walks.',
-      image:'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685187/uploads/ald9cqug23wvkhgnpvgt.png'
-  },
-  {
-      place:'Tarifa - Spain',
-      title:'LOS LANCES',
-      title2:'BEACH',
-      description:'Los Lances Beach in Tarifa is a coastal paradise known for its consistent winds, making it a world-renowned spot for kitesurfing and windsurfing. The beach\'s long, sandy shores provide ample space for relaxation and sunbathing, with a vibrant atmosphere of beach bars and cafes.',
-      image:'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685213/uploads/nujgbpocnwc574qbnu0x.png'
-  },
-  {
-      place:'Cappadocia - Turkey',
-      title:'Göreme',
-      title2:'Valley',
-      description:'Göreme Valley in Cappadocia is a historical marvel set against a unique geological backdrop, where centuries of wind and water have sculpted the landscape into whimsical formations. The valley is also famous for its open-air museums, underground cities, and the enchanting experience of hot air ballooning.',
+      place:'PEARL PATRON',
+      title:'',
+      title2:'',
+      description:'',
       image:'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685265/uploads/gzfgeftnft69a7bbvm4e.png'
   },
-  {
-    place:'Cappadocia - Turkey',
-    title:'Göreme',
-    title2:'Valley',
-    description:'Göreme Valley in Cappadocia is a historical marvel set against a unique geological backdrop, where centuries of wind and water have sculpted the landscape into whimsical formations. The valley is also famous for its open-air museums, underground cities, and the enchanting experience of hot air ballooning.',
-    image:'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685293/uploads/z4iqr9cit6g0ul5nx0xs.png'
-},
-{
-  place:'Cappadocia - Turkey',
-  title:'Göreme',
-  title2:'Valley',
-  description:'Göreme Valley in Cappadocia is a historical marvel set against a unique geological backdrop, where centuries of wind and water have sculpted the landscape into whimsical formations. The valley is also famous for its open-air museums, underground cities, and the enchanting experience of hot air ballooning.',
-  image:'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685351/uploads/gik0hsz6wrdawpbiqn6h.png'
-},
-{
-  place:'Cappadocia - Turkey',
-  title:'Göreme',
-  title2:'Valley',
-  description:'Göreme Valley in Cappadocia is a historical marvel set against a unique geological backdrop, where centuries of wind and water have sculpted the landscape into whimsical formations. The valley is also famous for its open-air museums, underground cities, and the enchanting experience of hot air ballooning.',
-  image:'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685376/uploads/tarmuuvrnqylnkzqbjzr.png'
-},
-{
-  place:'Cappadocia - Turkey',
-  title:'Göreme',
-  title2:'Valley',
-  description:'Göreme Valley in Cappadocia is a historical marvel set against a unique geological backdrop, where centuries of wind and water have sculpted the landscape into whimsical formations. The valley is also famous for its open-air museums, underground cities, and the enchanting experience of hot air ballooning.',
-  image:'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685399/uploads/onopiecab7w6o62uhplx.png'
-},
-]
+
+    {
+        place: 'CRYSTAL CONNOISSEUR',
+        title: '',
+        title2: '',
+        description: '',
+        image: 'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685045/uploads/bcqltfesftgosjnkr1bd.png'
+    },
+    {
+        place: 'DIAMOND ELITE',
+        title: '',
+        title2: '',
+        description: '',
+        image: 'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685083/uploads/ozrpkewpzjqdkpcyna49.png'
+    },
+    {
+        place: 'ELYSIAN ELITE',
+        title: '',
+        title2: '',
+        description: '',
+        image: 'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685187/uploads/ald9cqug23wvkhgnpvgt.png'
+    },
+    {
+        place: 'MYSTIC MEMBER',
+        title: '',
+        title2: '',
+        description: '',
+        image: 'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685213/uploads/nujgbpocnwc574qbnu0x.png'
+    },
+    {
+        place: 'AQUA ASTRA',
+        title: '',
+        title2: '',
+        description: '',
+        image: 'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685003/uploads/myczywv9gabgzmqpuj05.png'
+    },
+    {
+        place: 'SAPPHIRE SENTINEL',
+        title: '',
+        title2: '',
+        description: '',
+        image: 'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685293/uploads/z4iqr9cit6g0ul5nx0xs.png'
+    },
+    {
+        place: 'TITANIUM TREASURE',
+        title: '',
+        title2: '',
+        description: '',
+        image: 'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685351/uploads/gik0hsz6wrdawpbiqn6h.png'
+    },
+    {
+        place: 'TOPAZ TITAN',
+        title: '',
+        title2: '',
+        description: '',
+        image: 'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685376/uploads/tarmuuvrnqylnkzqbjzr.png'
+    },
+    {
+        place: 'AMBER ADVOCATE',
+        title: '',
+        title2: '',
+        description: '',
+        image: 'https://res.cloudinary.com/dm7ikl6hu/image/upload/v1741685399/uploads/onopiecab7w6o62uhplx.png'
+    }
+  ];
+  
 
 const _ = (id)=>document.getElementById(id)
 const cards = data.map((i, index)=>`<div class="card" id="card${index}" style="background-image:url(${i.image})"  ></div>`).join('')
@@ -116,7 +118,7 @@ return new Promise((resolve) => {
 });
 }
 
-let order = [0, 1, 2, 3, 4, 5];
+let order = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let detailsEven = true;
 
 let offsetTop = 200;
