@@ -39,14 +39,16 @@
 .gutter-y-30 {
   --bs-gutter-y: 30px;
 }
-
 body {
   font-family: var(--tecture-font);
   font-size: 17px;
   line-height: 26px;
   font-weight: 400;
   color: var(--tecture-gray);
+  overflow-x: hidden; /* Hide horizontal scrolling */
+  overflow-y: auto; /* Ensure vertical scrolling */
 }
+
 
 body.locked {
   overflow: hidden;
@@ -174,7 +176,8 @@ li {
   margin: 0 auto;
   width: 100%;
   min-width: 300px;
-  overflow: hidden;
+  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-y: visible; /* Allow scrolling vertically */
 }
 
 .container {
@@ -1174,6 +1177,14 @@ li {
   transition: all 300ms linear 0ms;
 }
 
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+.some-section {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 
 .main-menu .main-menu__list>li:hover>ul,
 .main-menu .main-menu__list>li>ul>li:hover>ul,
