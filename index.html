@@ -21,7 +21,6 @@
         href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/animate.min.css" />
     <link rel="stylesheet" href="assets/css/custom-animate.css" />
@@ -125,10 +124,10 @@
     </a>
 </div>
 
-<!-- Menu Icon for Mobile (Left Side) -->
+<!-- Menu Icon for Mobile (Right Side) -->
 <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-<!-- Bottom Navigation (Left Side Dropdown) -->
+<!-- Bottom Navigation (Right Side Dropdown) -->
 <div class="bottom-navigation" id="bottomNav">
     <span class="close-menu" onclick="toggleMenu()">✖</span> <!-- Close Button -->
     <a href="index.html">Home</a>
@@ -138,25 +137,27 @@
 </div>
 
 <!-- Right Side Login/Logout Button -->
-<div class="auth-container">
-    <a id="authButton" href="login.html">Login / Sign Up</a>
-</div>
-
+<!-- <div class="auth-container">
+    <a id="authButton" href="login.html"></a>
+</div> -->
+<!-- Right Side Login/Signup Button with Image Icon -->
+<a href="login.html" style="position: fixed; top: 5px; right: 100px; z-index: 1000;">
+    <img src="assets/images/card_images/login-user-icon-white-head-VRokey7-600-removebg-preview.png" alt="Login" width="70" height="60">
+</a>
 <!-- Responsive Navigation Styles -->
 <style>
-    /* Default Navigation (Desktop) */
+    /* Default Navigation (Hidden on Right) */
     .bottom-navigation {
         position: fixed;
         top: 0;
-        left: -100%; /* Hidden by default for mobile */
+        right: -100%; /* Hide off-screen on the right */
         width: 250px;
         height: 100vh;
         background: rgba(0, 0, 0, 0.9);
         padding: 20px;
-        border-radius: 0;
         text-align: left;
         gap: 15px;
-        transition: left 0.3s ease-in-out;
+        transition: right 0.3s ease-in-out;
         display: flex;
         flex-direction: column;
         align-items: start;
@@ -165,7 +166,7 @@
     }
 
     .bottom-navigation.show {
-        left: 0; /* Show menu */
+        right: 0; /* Show menu */
     }
 
     .bottom-navigation a {
@@ -181,11 +182,11 @@
         color: #ffcc00;
     }
 
-    /* Menu Icon (Left Side) */
+    /* Menu Icon (Right Side) */
     .menu-icon {
         position: fixed;
         top: 15px;
-        left: 15px;
+        right: 15px; /* Move menu icon to the right */
         font-size: 28px;
         color: white;
         cursor: pointer;
@@ -203,31 +204,6 @@
         color: white;
         display: block;
     }
-
-    /* Login/Logout Button (Right Side) */
-    .auth-container {
-        position: fixed;
-        top: 15px;
-        right: 20px;
-        z-index: 3000;
-    }
-
-    .auth-container a {
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        font-size: 18px;
-        padding: 10px 15px;
-        background: rgba(0, 0, 0, 0.7);
-        border-radius: 5px;
-        transition: background 0.3s;
-    }
-
-    .auth-container a:hover {
-        background: #ffcc00;
-        color: black;
-    }
-
     /* Responsive Design for Mobile */
     @media screen and (max-width: 768px) {
         .bottom-navigation {
@@ -412,55 +388,75 @@
                                     style="background-image: url(assets/images/shapes/about-one-content-shape-1.png);">
                                 </div>
                                 <div class="section-title sec-title-animation animation-style2">
-                                    <h2 class="section-title__title title-animation">Purposes</h2>
+                                    <h2 class="text-center">PURPOSES</h2>
                                 </div>
+                                <style>
+                                @font-face {
+                                    font-family: 'Mangro';
+                                    src: url('assets/fonts/mangro-elegant-serif-typeface-2024-06-20-19-39-05-utc/Mangro.ttf') format('truetype');
+                                    font-weight: normal;
+                                    font-style: normal;
+                                }
                                 
-                                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
-                                <!-- <style>
-                                    /* Import Roboto font from Google Fonts */
-                                    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+                                /* Apply the font to your text */
+                                .text-center {
+                                    font-family: 'Mangro', sans-serif !important;
+                                    font-size: 50px; /* Adjust size */
+                                    font-weight: bold;
+                                    color: #ffffff;
+                                }
                                 
-                                    .section-title__title {
-                                        font-family: "Roboto", sans-serif; /* Set font to Roboto */
-                                    }
-                                </style>                                 -->
+                            </style>
                                 <div class="about-one__design-make">
                                     <div class="about-one__design-make-img">
                                         <img src="assets/images/Wish_Club_Logo-removebg-preview.png" alt="">
                                     </div>
                                     <div class="about-one__design-make-content">
+                                        <style>
+                                        @font-face {
+                                            font-family: 'Labora';
+                                            src: url('assets/fonts/Labora/Labora-Regular.ttf') format('truetype');
+                                            font-weight: normal;
+                                            font-style: normal;
+                                        }
+                                        
+                                        /* Apply Labora Font to Title */
+                                        .about-one__design-make-title {
+                                            font-family: 'Labora', sans-serif; /* Apply Labora font */
+                                            font-size: 28px; /* Adjust font size */
+                                            font-weight: 700; /* Bold for emphasis */
+                                            color:black; /* Dark gray for luxury feel */
+                                            text-transform: none; /* Keeps original capitalization */
+                                            line-height: 1.4; /* Adjust readability */
+                                        }
+                                        
+                                        /* Apply Labora Font to Paragraph */
+                                        .about-one__design-make-text {
+                                            font-family: 'Labora', sans-serif; /* Modern clean font */
+                                            font-size: 18px; /* Adjust size */
+                                            font-weight: 400; /* Regular weight */
+                                            color:black; /* Slightly lighter gray */
+                                            line-height: 1.6; /* Improve readability */
+                                        }
+                                    </style>
+                                    
                                         <h5 class="about-one__design-make-title">
                                             The Wish Island Membership Club invites you to experience a world of supreme luxury and
                                             exclusivity. Designed for those who seek the finest in life, our club offers a unique blend of
                                             personalized services, breathtaking environments, and exceptional experiences tailored to
                                             your every desire.
                                         </h5>
-                                        <p class="about-one__design-make-text" >
+                                        <p class="about-one__design-make-text">
                                             Our club isn’t just a place—it’s a lifestyle. Whether you’re indulging in our wellness and health
                                             centers, enjoying bespoke events, or unwinding in complete privacy, membership at Wish
                                             Island grants you privileges like no other. Every moment is an opportunity to immerse
                                             yourself in the beauty, serenity, and unmatched exclusivity that our club offers.
                                         </p>
                                     </div>
+                                    
+                                    <!-- Google Fonts (Add this in the <head> of your HTML) -->
+                                    <link href="assets/fonts/Labora/Labora-Italic.ttf" rel="stylesheet">                                    
                                 </div>
-                                
-                                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
-                                <!-- <style>
-                                    .about-one__design-make-content {
-                                        font-family: "Times New Roman", Times, serif; /* Set font to Times New Roman */
-                                        text-align: justify; /* Justify text */
-                                    }
-                                
-                                    .about-one__design-make-title {
-                                        font-family: "Times New Roman", Times, serif; /* Apply font */
-                                        text-align: justify; /* Justify heading text */
-                                    }
-                                
-                                    .about-one__design-make-text {
-                                        font-family: "Times New Roman", Times, serif; /* Apply font */
-                                        text-align: justify; /* Justify paragraph text */
-                                    }
-                                </style>                                 -->
                             </div>
                         </div>
                     </div>
@@ -512,6 +508,25 @@
                     </li>
                 </ul>
             </div>
+            <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+    .sliding-text__title {
+    text-transform: uppercase; /* Capitalizes all letters */
+}
+    .sliding-text__title {
+        font-family: 'Dancing Script', cursive; /* Signature-style font */
+        font-size: 50px; /* Adjust size */
+        font-weight: 700; /* Adjust thickness */
+        color: black; /* Text color */
+        text-transform: none; /* Keep original capitalization */
+    }
+
+    .sliding-text__title:hover {
+        font-family: 'Pacifico', cursive; /* Another signature-style font for hover */
+        font-weight: bold;
+        color: #ffcc00; /* Hover color */
+    }
+</style>
         </section>
         <br><br>
         <!-- Projects One Start -->
@@ -524,31 +539,46 @@
             <div class="section-shape-1" style="background-image: url(assets/images/shapes/section-shape-1.png);"></div>
             <div class="container">
                 <div class="section-title sec-title-animation animation-style2">
-                    <h2 class="section-title__title title-animation">Featured Activities and Event</h2>
+                    <h2 class="text-center">FEATURED ACTIVITIES AND EVENT</h2>
                 </div>
-                
-                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
                 <style>
-                    /* Import Roboto font from Google Fonts */
-                    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+                @font-face {
+                    font-family: 'Mangro';
+                    src: url('assets/fonts/mangro-elegant-serif-typeface-2024-06-20-19-39-05-utc/Mangro.ttf') format('truetype');
+                    font-weight: normal;
+                    font-style: normal;
+                }
                 
-                    .section-title__title {
-                        font-family: "Roboto", sans-serif; /* Set font to Roboto */
-                    }
-                </style>                
+                /* Apply the font to your text */
+                .text-center {
+                    font-family: 'Mangro', sans-serif !important;
+                    font-size: 50px; /* Adjust size */
+                    font-weight: bold;
+                    color: #ffffff;
+                }
+                
+            </style>       
 <h5 class="exclusive-features-text">
     Our members enjoy a curated selection of exclusive activities and luxurious amenities that
     cater to a wide range of interests. Some of our most popular features include:
 </h5>
 
-<!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
 <style>
-    /* Import Abril Fatface font from Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+    @font-face {
+        font-family: 'Labora';
+        src: url('assets/fonts/Labora/Labora-Italic.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
 
+    /* Apply Labora Font to Exclusive Features Text */
     .exclusive-features-text {
-        font-family: "Abril Fatface", cursive; /* Set font to Abril Fatface */
-        font-weight: normal; /* Keep normal weight for a balanced look */
+        font-family: 'Labora', sans-serif; /* Use Labora font */
+        font-size: 22px; /* Adjust size */
+        font-weight: 600; /* Slightly bold for emphasis */
+        color: black; /* Dark gray for elegance */
+        text-transform: none; /* Keep original capitalization */
+        line-height: 1.5; /* Improve readability */
     }
 </style>
                 <div class="design-interior__inner">
@@ -621,22 +651,25 @@
         <section class="testimonial-two testimonial-three">
             <div class="section-shape-1" style="background-image: url(assets/images/shapes/section-shape-1.png);"></div>
             <div class="container">
-                <div class="section-title text-center sec-title-animation animation-style1">
-                    <h2 class="section-title__title title-animation">
-                        What Our Clients Say
-                    </h2>
+                <div class="section-title sec-title-animation animation-style2">
+                    <h2 class="text-center">WHAT OUR CLIENTS SAY</h2>
                 </div>
-                
-                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
                 <style>
-                    /* Import Roboto font from Google Fonts */
-                    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+                @font-face {
+                    font-family: 'Mangro';
+                    src: url('assets/fonts/mangro-elegant-serif-typeface-2024-06-20-19-39-05-utc/Mangro.ttf') format('truetype');
+                    font-weight: normal;
+                    font-style: normal;
+                }
                 
-                    .section-title__title {
-                        font-family: "Roboto", sans-serif; /* Set font to Roboto */
-                        font-weight: 500; /* Medium weight for a balanced look */
-                    }
-                </style>                
+                /* Apply the font to your text */
+                .text-center {
+                    font-family: 'Mangro', sans-serif !important;
+                    font-size: 50px; /* Adjust size */
+                    font-weight: bold;
+                    color: #ffffff;
+                }  
+            </style>       
                 <div class="testimonial-two__bottom">
                     <div class="testimonial-slider-container">
                         <button id="prevBtn" class="slider-btn">❮</button>
@@ -897,22 +930,26 @@
         <section class="awards-one">
             <div class="section-shape-1" style="background-image: url(assets/images/shapes/section-shape-1.png);"></div>
             <div class="container">
-                <div class="section-title text-center sec-title-animation animation-style1">
-                    <h2 class="section-title__title title-animation">
-                        Overview
-                    </h2>
+                <div class="section-title sec-title-animation animation-style2">
+                    <h2 class="text-center">OVERVIEW</h2>
                 </div>
-                
-                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
                 <style>
-                    /* Import Roboto font from Google Fonts */
-                    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+                @font-face {
+                    font-family: 'Mangro';
+                    src: url('assets/fonts/mangro-elegant-serif-typeface-2024-06-20-19-39-05-utc/Mangro.ttf') format('truetype');
+                    font-weight: normal;
+                    font-style: normal;
+                }
                 
-                    .section-title__title {
-                        font-family: "Roboto", sans-serif; /* Set font to Roboto */
-                        font-weight: 500; /* Medium weight for a balanced look */
-                    }
-                </style>
+                /* Apply the font to your text */
+                .text-center {
+                    font-family: 'Mangro', sans-serif !important;
+                    font-size: 50px; /* Adjust size */
+                    font-weight: bold;
+                    color: #ffffff;
+                }
+                
+            </style>
                 
                 <div class="row">
                     <div class="col-xl-7">
@@ -952,13 +989,24 @@
                         </div>
                     </div>
                 
-                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
-                <style>
-                    .awards-one__title {
-                        font-family: "Times New Roman", Times, serif; /* Set font to Times New Roman */
-                        text-align: justify; /* Justify text for a structured appearance */
-                    }
-                </style>                
+                    <style>
+                        @font-face {
+                            font-family: 'Labora';
+                            src: url('assets/fonts/Labora/Labora-Regular.ttf') format('truetype');
+                            font-weight: normal;
+                            font-style: normal;
+                        }
+                
+                        /* Apply Labora Font to the Awards Section Titles */
+                        .awards-one__title {
+                            font-family: 'Labora', sans-serif; /* Use Labora font */
+                            font-size: 22px; /* Adjust size */
+                            font-weight: 600; /* Slightly bold for emphasis */
+                            color: black; /* Elegant dark text */
+                            text-transform: none; /* Keep original capitalization */
+                            line-height: 1.5; /* Improve readability */
+                        }
+                    </style>
                     <div class="col-xl-5">
                         <div class="awards-one__right wow slideInRight" data-wow-delay="100ms"
                             data-wow-duration="2500ms">
@@ -966,9 +1014,9 @@
                                 <div class="awards-one__img">
                                     <img src="assets/images/card/purpposes1 (3).jpg" alt="">
                                 </div>
-                                <div class="awards-one__img-two">
+                                <!-- <div class="awards-one__img-two">
                                     <img src="assets/images/card/WhatsApp Image 2025-03-10 at 10.51.59_0b2d2219 (2).jpg" alt="">
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -1026,10 +1074,23 @@
         </div>
         <div class="site-footer__marquee">
             <style>
+                /* Apply Signature Font to Marquee Text */
                 .site-footer__marquee .marquee_mode li {
-                    color: black; /* Change text color to black */
+                    font-family: 'Dancing Script', cursive; /* Signature-style font */
+                    font-size: 50px; /* Adjust size */
+                    font-weight: 700; /* Adjust thickness */
+                    color: black; /* Text color */
+                    text-transform: none; /* Keep original capitalization */
+                }
+        
+                /* Hover effect for marquee text */
+                .site-footer__marquee .marquee_mode li:hover {
+                    font-family: 'Pacifico', cursive; /* Another signature-style font for hover */
+                    font-weight: bold;
+                    color: #ffcc00; /* Hover color */
                 }
             </style>
+        
             <ul class="marquee_mode">
                 <li>Luxury Stay Accommodations</li>
                 <li>Mini Formula Track</li>
@@ -1042,10 +1103,7 @@
                 <li>Private Yacht & Jet Charters</li>
             </ul>
         </div>
-        
-        
-
-        <footer class="site-footer">
+        <br><br>
             <div class="container">
                 <div class="site-footer__top">
                     <div class="row d-flex justify-content-between">
@@ -1136,9 +1194,6 @@
                     <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                 </div><!-- /.mobile-nav__social -->
             </div><!-- /.mobile-nav__top -->
-
-
-
         </div>
         <!-- /.mobile-nav__content -->
     </div>

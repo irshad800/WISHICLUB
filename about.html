@@ -152,25 +152,23 @@
 </div>
 
 <!-- Right Side Login/Logout Button -->
-<div class="auth-container">
-    <a id="authButton" href="login.html">Login / Sign Up</a>
-</div>
-
+<a href="login.html" style="position: fixed; top: 5px; right: 100px; z-index: 1000;">
+    <img src="assets/images/card_images/login-user-icon-white-head-VRokey7-600-removebg-preview.png" alt="Login" width="70" height="60">
+</a>
 <!-- Responsive Navigation Styles -->
 <style>
-    /* Default Navigation (Desktop) */
+    /* Default Navigation (Hidden on Right) */
     .bottom-navigation {
         position: fixed;
         top: 0;
-        left: -100%; /* Hidden by default for mobile */
+        right: -100%; /* Hide off-screen on the right */
         width: 250px;
         height: 100vh;
         background: rgba(0, 0, 0, 0.9);
         padding: 20px;
-        border-radius: 0;
         text-align: left;
         gap: 15px;
-        transition: left 0.3s ease-in-out;
+        transition: right 0.3s ease-in-out;
         display: flex;
         flex-direction: column;
         align-items: start;
@@ -179,7 +177,7 @@
     }
 
     .bottom-navigation.show {
-        left: 0; /* Show menu */
+        right: 0; /* Show menu */
     }
 
     .bottom-navigation a {
@@ -195,11 +193,11 @@
         color: #ffcc00;
     }
 
-    /* Menu Icon (Left Side) */
+    /* Menu Icon (Right Side) */
     .menu-icon {
         position: fixed;
         top: 15px;
-        left: 15px;
+        right: 15px; /* Move menu icon to the right */
         font-size: 28px;
         color: white;
         cursor: pointer;
@@ -217,31 +215,6 @@
         color: white;
         display: block;
     }
-
-    /* Login/Logout Button (Right Side) */
-    .auth-container {
-        position: fixed;
-        top: 15px;
-        right: 20px;
-        z-index: 3000;
-    }
-
-    .auth-container a {
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        font-size: 18px;
-        padding: 10px 15px;
-        background: rgba(0, 0, 0, 0.7);
-        border-radius: 5px;
-        transition: background 0.3s;
-    }
-
-    .auth-container a:hover {
-        background: #ffcc00;
-        color: black;
-    }
-
     /* Responsive Design for Mobile */
     @media screen and (max-width: 768px) {
         .bottom-navigation {
@@ -312,19 +285,25 @@
             <div class="section-shape-1" style="background-image: url(assets/images/shapes/section-shape-1.png);"></div>
             <div class="container">
                 <div class="section-title text-center sec-title-animation animation-style2">
-                    <h2 class="section-title__title title-animation">The Club Experience</h2>
+                    <h2 class="section-title__title title-animation">THE CLUB EXPERIENCES</h2>
                 </div>
-                
-                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
                 <style>
-                    /* Import Roboto font from Google Fonts */
-                    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-                
-                    .section-title__title {
-                        font-family: "Roboto", sans-serif; /* Set font to Roboto */
-                        font-weight: 500; /* Medium weight for better readability */
+                    @font-face {
+                        font-family: 'Mangro';
+                        src: url('assets/fonts/mangro-elegant-serif-typeface-2024-06-20-19-39-05-utc/Mangro.ttf') format('truetype');
+                        font-weight: normal;
+                        font-style: normal;
                     }
-                </style>                
+                    
+                    /* Apply the font to your text */
+                    .section-title__title {
+                        font-family: 'Mangro', sans-serif !important;
+                        font-size: 50px; /* Adjust size */
+                        font-weight: bold;
+                        color: #ffffff;
+                    }
+                    
+                </style>               
                 <div class="row">
                     <!--Services Four Single Start-->
                     <div class="col-xl-4 col-lg-4 wow fadeInLeft" data-wow-delay="100ms">
@@ -336,31 +315,57 @@
                             </div>
                             <div class="services-four__content">
                                 <h4 class="services-four__title">
-                                    <a href="">Private Beach Experience</a>
+                                    <a href="">Private Beach <br>Experience</a>
                                 </h4>
-                                
-                                <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
+                            
                                 <style>
-                                    /* Import Abril Fatface font from Google Fonts */
-                                    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
-                                
-                                    .services-four__title {
-                                        font-family: "Abril Fatface", cursive; /* Set font to Abril Fatface */
-                                        font-weight: normal; /* Keep normal weight for an elegant look */
+                                    @font-face {
+                                        font-family: 'Jedira';
+                                        src: url('assets/fonts/jedira-modern-branding-logo-font-2023-11-27-05-27-25-utc/TTF/Jedira-Italic.ttf') format('truetype');
+                                        font-weight: normal;
+                                        font-style: normal;
                                     }
-                                </style>                                
+                            
+                                    /* Apply Jedira Font to the Title */
+                                    .services-four__title a {
+                                        font-family: 'Jedira', sans-serif !important;
+                                        font-size: 30px; /* Adjust size */
+                                        font-weight: bold;
+                                        color: #ffffff;
+                                        text-decoration: none; /* Remove underline */
+                                    }
+                                </style>                                                     
                                <p class="services-four__text">
                                 Escape to Wish Island Club’s exclusive private beaches, where luxury meets tranquility. Relax on soft sands, 
                                 savor romantic seaside dining, or unwind in a cabana as waves set the perfect ambiance.
                             </p>
-                            
-                            <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
                             <style>
-                                .services-four__text {
-                                    font-family: "Times New Roman", Times, serif; /* Set font to Times New Roman */
-                                    text-align: justify; /* Justify text for a structured appearance */
+                                @font-face {
+                                    font-family: 'Labora';
+                                    src: url('assets/fonts/Labora/Labora-Regular.ttf') format('truetype');
+                                    font-weight: normal;
+                                    font-style: normal;
                                 }
-                            </style>                            
+                                
+                                /* Apply Labora Font to Title */
+                                .services-four__text {
+                                    font-family: 'Labora', sans-serif; /* Apply Labora font */
+                                    font-size: 28px; /* Adjust font size */
+                                    font-weight: 700; /* Bold for emphasis */
+                                    color:black; /* Dark gray for luxury feel */
+                                    text-transform: none; /* Keeps original capitalization */
+                                    line-height: 1.4; /* Adjust readability */
+                                }
+                                
+                                /* Apply Labora Font to Paragraph */
+                                .services-four__text {
+                                    font-family: 'Labora', sans-serif; /* Modern clean font */
+                                    font-size: 18px; /* Adjust size */
+                                    font-weight: 400; /* Regular weight */
+                                    color:black; /* Slightly lighter gray */
+                                    line-height: 1.6; /* Improve readability */
+                                }
+                            </style>                       
                             </div>
                             <div class="services-four__arrow">
                                 <a href=""><span class="icon-right-arrow"></span></a>
@@ -377,7 +382,7 @@
                                 </div>
                             </div>
                             <div class="services-four__content">
-                                <h4 class="services-four__title"><a href="">Yacht Experience</a>
+                                <h4 class="services-four__title"><a href="">Yacht <br> Experience</a>
                                 </h4>
                                 <p class="services-four__text">Set sail with Wish Island Club for a luxurious yacht tour, where adventure meets elegance. Enjoy pristine waters, hidden coves, gourmet service, and stunning views—perfect for any occasion.</p>
                             </div>
@@ -396,7 +401,7 @@
                                 </div>
                             </div>
                             <div class="services-four__content">
-                                <h4 class="services-four__title"><a href="">Island Event experience
+                                <h4 class="services-four__title"><a href="">Island Event <br> experience
                                     </a>
                                 </h4>
                                 <p class="services-four__text">Host an unforgettable event on a private island, where pristine beaches and azure waters set the perfect scene. From elegant weddings to corporate retreats, every detail is expertly crafted for perfection.</p>
@@ -449,36 +454,92 @@
                                     <div class="about-one__design-make-content">
                                         <p class="about-one__design-make-text">Founded in 2024, Wish Island Club offers unparalleled luxury and exclusivity in the breathtaking Maldives, creating a sanctuary where members escape the ordinary and embrace the extraordinary.</p>
                                         <style>
-                                            .about-one__design-make-content{
-                                                font-family: "Times New Roman", Times, serif; /* Set font to Times New Roman */
-                                                text-align: justify; /* Justify text for a structured look */
+                                            @font-face {
+                                                font-family: 'Labora';
+                                                src: url('assets/fonts/Labora/Labora-Regular.ttf') format('truetype');
+                                                font-weight: normal;
+                                                font-style: normal;
                                             }
-                                            </style> 
+                                            
+                                            /* Apply Labora Font to Title */
+                                            .about-one__design-make-text {
+                                                font-family: 'Labora', sans-serif; /* Apply Labora font */
+                                                font-size: 28px; /* Adjust font size */
+                                                font-weight: 700; /* Bold for emphasis */
+                                                color:black; /* Dark gray for luxury feel */
+                                                text-transform: none; /* Keeps original capitalization */
+                                                line-height: 1.4; /* Adjust readability */
+                                            }
+                                            
+                                            /* Apply Labora Font to Paragraph */
+                                            .about-one__design-make-text {
+                                                font-family: 'Labora', sans-serif; /* Modern clean font */
+                                                font-size: 18px; /* Adjust size */
+                                                font-weight: 400; /* Regular weight */
+                                                color:black; /* Slightly lighter gray */
+                                                line-height: 1.6; /* Improve readability */
+                                            }
+                                        </style> 
                                     </div>
                                 </div>
                                 <ul class="about-one__progress-list list-unstyled">
                                     <li class="about-one__progress">
                                         <h4 class="about-one__progress-title">Our Vision</h4>
+                                        <style>
+                                            @font-face {
+                                                font-family: 'Jedira';
+                                                src: url('assets/fonts/jedira-modern-branding-logo-font-2023-11-27-05-27-25-utc/TTF/Jedira-Italic.ttf') format('truetype');
+                                                font-weight: normal;
+                                                font-style: normal;
+                                            }
+                                    
+                                            /* Apply Jedira Font to the Title */
+                                            .about-one__progress-title {
+                                                font-family: 'Jedira', sans-serif !important;
+                                                font-size: 30px; /* Adjust size */
+                                                font-weight: bold;
+                                                color: #ffffff;
+                                                text-decoration: none; /* Remove underline */
+                                            }
+                                        </style>       
                                         <p class="club-vision-text">
                                             To be the most exclusive and sought-after membership club in the Maldives, 
                                             offering unparalleled luxury, experiences, and personalized services.
                                         </p>
+                                        <style>
+                                            @font-face {
+                                                font-family: 'Labora';
+                                                src: url('assets/fonts/Labora/Labora-Regular.ttf') format('truetype');
+                                                font-weight: normal;
+                                                font-style: normal;
+                                            }
+                                            
+                                            /* Apply Labora Font to Title */
+                                            .club-vision-text {
+                                                font-family: 'Labora', sans-serif; /* Apply Labora font */
+                                                font-size: 28px; /* Adjust font size */
+                                                font-weight: 700; /* Bold for emphasis */
+                                                color:black; /* Dark gray for luxury feel */
+                                                text-transform: none; /* Keeps original capitalization */
+                                                line-height: 1.4; /* Adjust readability */
+                                            }
+                                            
+                                            /* Apply Labora Font to Paragraph */
+                                            .club-vision-text{
+                                                font-family: 'Labora', sans-serif; /* Modern clean font */
+                                                font-size: 18px; /* Adjust size */
+                                                font-weight: 400; /* Regular weight */
+                                                color:black; /* Slightly lighter gray */
+                                                line-height: 1.6; /* Improve readability */
+                                            }
+                                        </style> 
                                         <li class="about-one__progress">
                                             <h4 class="about-one__progress-title">Our Mission</h4>
-                                            <p>Our mission is to deliver unique, bespoke experiences with exclusive events, world-class accommodations, and personalized services, all while championing sustainability and social responsibility.</p>
-                                        </li>
-                                        
-                                        <!-- Add this CSS inside your stylesheet (style.css) or in the <style> section -->
-                                        <style>
-                                            .club-vision-text {
-                                                font-family: "Times New Roman", Times, serif; /* Set font to Times New Roman */
-                                                text-align: justify; /* Justify text for a structured look */
-                                            }
-                                            .about-one__progress{
-                                                font-family: "Times New Roman", Times, serif; /* Set font to Times New Roman */
-                                                text-align: justify; /* Justify text for a structured look */
-                                            }
-                                        </style>                                        
+                                            <p class="club-vision-text">
+                                            Our mission is to deliver unique, bespoke experiences with exclusive events, world-class accommodations, and personalized services, all while championing sustainability and social responsibility.
+                                        </p>
+                                        <br>
+                                        </li>                                      
                                     </li>
                                 </ul>
                             </div>
@@ -628,8 +689,8 @@
             </script>
         </section>        
         <!-- Projects One End -->
-       <!-- Sliding Text One Start -->
-       <section class="sliding-text-one">
+      <!-- Sliding Text One Start -->
+      <section class="sliding-text-one">
         <div class="section-shape-1" style="background-image: url(assets/images/shapes/section-shape-1.png);"></div>
         <div class="sliding-text-one__wrap">
             <ul class="sliding-text__list list-unstyled marquee_mode">
@@ -671,9 +732,27 @@
                 </li>
             </ul>
         </div>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+.sliding-text__title {
+text-transform: uppercase; /* Capitalizes all letters */
+}
+.sliding-text__title {
+    font-family: 'Dancing Script', cursive; /* Signature-style font */
+    font-size: 50px; /* Adjust size */
+    font-weight: 700; /* Adjust thickness */
+    color: black; /* Text color */
+    text-transform: none; /* Keep original capitalization */
+}
+
+.sliding-text__title:hover {
+    font-family: 'Pacifico', cursive; /* Another signature-style font for hover */
+    font-weight: bold;
+    color: #ffcc00; /* Hover color */
+}
+</style>
     </section>
     <br><br>
-        <!-- Sliding Text One End -->
 
         <!--Testimonial Two Start-->
         <section class="testimonial-two testimonial-three">
@@ -698,6 +777,50 @@
                                 <div class="testimonial-two__shape-1">
                                     <img src="assets/images/shapes/testimonial-two-shape-1.png" alt="">
                                 </div>
+                                <style>
+                                    @font-face {
+                                        font-family: 'Jedira';
+                                        src: url('assets/fonts/jedira-modern-branding-logo-font-2023-11-27-05-27-25-utc/TTF/Jedira-Italic.ttf') format('truetype');
+                                        font-weight: normal;
+                                        font-style: normal;
+                                    }
+                            
+                                    /* Apply Jedira Font to the Title */
+                                    .testimonial-two__name a {
+                                        font-family: 'Jedira', sans-serif !important;
+                                        font-size: 20px; /* Adjust size */
+                                        font-weight: bold;
+                                        color: #ffffff;
+                                        text-decoration: none; /* Remove underline */
+                                    }
+                                </style>    
+                                <style>
+                                    @font-face {
+                                        font-family: 'Labora';
+                                        src: url('assets/fonts/Labora/Labora-Regular.ttf') format('truetype');
+                                        font-weight: normal;
+                                        font-style: normal;
+                                    }
+                                    
+                                    /* Apply Labora Font to Title */
+                                    .testimonial-two__text {
+                                        font-family: 'Labora', sans-serif; /* Apply Labora font */
+                                        font-size: 28px; /* Adjust font size */
+                                        font-weight: 700; /* Bold for emphasis */
+                                        color:black; /* Dark gray for luxury feel */
+                                        text-transform: none; /* Keeps original capitalization */
+                                        line-height: 1.4; /* Adjust readability */
+                                    }
+                                    
+                                    /* Apply Labora Font to Paragraph */
+                                    .testimonial-two__text {
+                                        font-family: 'Labora', sans-serif; /* Modern clean font */
+                                        font-size: 18px; /* Adjust size */
+                                        font-weight: 400; /* Regular weight */
+                                        color:black; /* Slightly lighter gray */
+                                        line-height: 1.6; /* Improve readability */
+                                    }
+                                </style>              
                                 <h3 class="testimonial-two__name"><a href="testimonials.html">Private Island & Beaches</a></h3>
                                 <p class="testimonial-two__text">Enjoy exclusive access to private islands and serene beaches, perfect for relaxation, scenic strolls, or a refreshing dip in crystal-clear waters—your ultimate escape to tranquility.
                                 </p>
@@ -719,12 +842,6 @@
                                 <h3 class="testimonial-two__name"><a href="testimonials.html">Private Beach Villas</a></h3>
                                 <p class="testimonial-two__text">Experience luxury in our private beach villas, offering direct beach access, lush gardens, and exquisite interiors for ultimate privacy—crafted for an exceptional lifestyle.
                                 </p>
-                                <style>
-                                    .testimonial-two__text{
-                                        font-family: "Times New Roman", Times, serif; /* Set font to Times New Roman */
-                                        text-align: justify; /* Justify text for a structured look */
-                                    }
-                                    </style>
                             </div>
                         </div>
                         <!--Testimonial Two Single End-->
@@ -979,10 +1096,23 @@
         </div>
         <div class="site-footer__marquee">
             <style>
+                /* Apply Signature Font to Marquee Text */
                 .site-footer__marquee .marquee_mode li {
-                    color: black; /* Change text color to black */
+                    font-family: 'Dancing Script', cursive; /* Signature-style font */
+                    font-size: 50px; /* Adjust size */
+                    font-weight: 700; /* Adjust thickness */
+                    color: black; /* Text color */
+                    text-transform: none; /* Keep original capitalization */
+                }
+        
+                /* Hover effect for marquee text */
+                .site-footer__marquee .marquee_mode li:hover {
+                    font-family: 'Pacifico', cursive; /* Another signature-style font for hover */
+                    font-weight: bold;
+                    color: #ffcc00; /* Hover color */
                 }
             </style>
+        
             <ul class="marquee_mode">
                 <li>Luxury Stay Accommodations</li>
                 <li>Mini Formula Track</li>
@@ -995,9 +1125,7 @@
                 <li>Private Yacht & Jet Charters</li>
             </ul>
         </div>
-        
-        
-
+        <br><br>
         <footer class="site-footer">
             <div class="container">
                 <div class="site-footer__top">
