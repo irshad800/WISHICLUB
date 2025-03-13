@@ -1,0 +1,3 @@
+To learn more about the font family and its license, visit https://www.fontmirror.com/cindyrella
+
+Cindyrella: A whimsical, hand-painted font that captures the spirit of fairytale charm.  Its slightly uneven strokes and playful curves evoke a sense of effortless elegance, perfect for adding a touch of magic to children''s books, invitations, or any design needing a touch of enchantment.  The letters dance across the page like a graceful waltz.

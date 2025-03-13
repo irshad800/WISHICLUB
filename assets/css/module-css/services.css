@@ -844,8 +844,12 @@
 }
 
 .service-details__text-2 {
-    margin-top: 22px;
-    margin-bottom: 36px;
+    font-size: 20px; /* Increase text size */
+    text-align: justify; /* Justify text */
+    line-height: 1.8; /* Improve readability */
+    color: #444; /* Slightly darker text for contrast */
+    margin: 10px auto;
+    max-width: 900px; /* Keep text width readable */
 }
 
 .service-details__img-and-point-box {

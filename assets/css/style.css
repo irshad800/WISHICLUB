@@ -80,7 +80,7 @@ body.locked {
 }
 
 a {
-  color: var(--tecture-base);
+  color: black;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
@@ -115,16 +115,20 @@ a:visited {
 h1,
 h2,
 h3,
-h4,
 h5,
 h6 {
   font-family: var(--tecture-black);
   color: black;
   margin: 0;
 }
+h4{
+  font-family: var(--tecture-black);
+  color:white;
+  margin: 0;
+}
 
 p {
-  color: black;
+  color: white;
   font-size: 17px;
   line-height: 26px;
   margin: 0;

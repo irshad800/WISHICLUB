@@ -21,7 +21,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&display=swap">
 
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
@@ -65,7 +65,6 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
-
 <body class="body-bg-color-1">
 
 
@@ -73,67 +72,22 @@
     <div class="preloader">
         <div class="preloader__image"></div>
     </div>
-    <!-- /.preloader -->
-
-    <!-- <div class="theme-border-left"></div>
-    <div class="theme-border-right"></div>
-
-
-    <!-- Start sidebar widget content 
-    <div class="xs-sidebar-group info-group info-sidebar">
-        <div class="xs-overlay xs-bg-black"></div>
-        <div class="xs-sidebar-widget">
-            <div class="sidebar-widget-container">
-                <div class="widget-heading">
-                    <a href="#" class="close-side-widget">X</a>
-                </div>
-                <div class="sidebar-textwidget">
-                    <div class="sidebar-info-contents">
-                        <div class="content-inner">
-                            <div class="logo">
-                                <a href="index.html"><img src="assets/images/resources/logo-1.png" alt="" /></a>
-                            </div>
-                            <div class="form-inner">
-                                <h4>Get a free quote</h4>
-                                <form action="assets/inc/sendemail.php" class="contact-form-validated"
-                                    novalidate="novalidate">
-                                    <div class="form-group">
-                                        <input type="text" name="name" placeholder="Name" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" name="email" placeholder="Email" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea name="message" placeholder="Message..."></textarea>
-                                    </div>
-                                    <div class="form-group message-btn">
-                                        <button type="submit" class="thm-btn form-inner__btn">Submit Now</button>
-                                    </div>
-                                </form>
-                                <div class="result"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- End sidebar widget content -->
     <section class="main-slider" style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
         <div class="main-slider__bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
             <img src="assets/images/card/WhatsApp Image 2025-03-10 at 13.56.14_3f086b4c.jpg" alt="Background Image" 
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
         </div>
-    </section>    
+    </section>   
         <!-- Logo Inside Video -->
         <div class="video-logo" 
         style="position: absolute; top: 10px; left: 20px; text-align: left; z-index: 1000;">
         <a href="index.html">
-            <img src="" alt="" 
+            <img src="assets/images/Wish Club Logo.JPG" alt="Wish Club Logo" 
                 style="height: 100px; width: auto; filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.5));">
         </a>
     </div>
-  <!-- Menu Icon for Mobile -->
+    
+        <!-- Menu Icon for Mobile -->
 <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
 <!-- Menu Icon for Mobile (Left Side) -->
@@ -149,25 +103,23 @@
 </div>
 
 <!-- Right Side Login/Logout Button -->
-<div class="auth-container">
-    <a id="authButton" href="login.html">Login / Sign Up</a>
-</div>
-
+<a href="login.html" style="position: fixed; top: 5px; right: 100px; z-index: 1000;">
+    <img src="assets/images/card_images/login-user-icon-white-head-VRokey7-600-removebg-preview.png" alt="Login" width="70" height="60">
+</a>
 <!-- Responsive Navigation Styles -->
 <style>
-    /* Default Navigation (Desktop) */
+    /* Default Navigation (Hidden on Right) */
     .bottom-navigation {
         position: fixed;
         top: 0;
-        left: -100%; /* Hidden by default for mobile */
+        right: -100%; /* Hide off-screen on the right */
         width: 250px;
         height: 100vh;
         background: rgba(0, 0, 0, 0.9);
         padding: 20px;
-        border-radius: 0;
         text-align: left;
         gap: 15px;
-        transition: left 0.3s ease-in-out;
+        transition: right 0.3s ease-in-out;
         display: flex;
         flex-direction: column;
         align-items: start;
@@ -176,7 +128,7 @@
     }
 
     .bottom-navigation.show {
-        left: 0; /* Show menu */
+        right: 0; /* Show menu */
     }
 
     .bottom-navigation a {
@@ -192,11 +144,11 @@
         color: #ffcc00;
     }
 
-    /* Menu Icon (Left Side) */
+    /* Menu Icon (Right Side) */
     .menu-icon {
         position: fixed;
         top: 15px;
-        left: 15px;
+        right: 15px; /* Move menu icon to the right */
         font-size: 28px;
         color: white;
         cursor: pointer;
@@ -214,31 +166,6 @@
         color: white;
         display: block;
     }
-
-    /* Login/Logout Button (Right Side) */
-    .auth-container {
-        position: fixed;
-        top: 15px;
-        right: 20px;
-        z-index: 3000;
-    }
-
-    .auth-container a {
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        font-size: 18px;
-        padding: 10px 15px;
-        background: rgba(0, 0, 0, 0.7);
-        border-radius: 5px;
-        transition: background 0.3s;
-    }
-
-    .auth-container a:hover {
-        background: #ffcc00;
-        color: black;
-    }
-
     /* Responsive Design for Mobile */
     @media screen and (max-width: 768px) {
         .bottom-navigation {
@@ -288,14 +215,16 @@
 </script>
     </section>
 <!-- Right Aligned Login Button -->
+<!-- Right Aligned Login Button -->
 <div style="position: fixed; top: 20px; right: -250px; z-index: 2000;">
-    <a id="authButton" 
-    href="login.html" 
-    style="text-decoration: none; color: white; font-weight: bold; font-size: 20px; padding: 10px 20px; 
-    background: transparent; border-radius: 5px;">
-    Login / Sign Up
-</a>
+    <a href="login.html" 
+        style="text-decoration: none; color: white; font-weight: bold; font-size: 20px; padding: 10px 20px; 
+        background:transparent; border-radius: 5px;">
+        Login
+    </a>
 </div>
+
+    </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -508,8 +437,19 @@ if (authToken) {
         </div>
         <div class="site-footer__marquee">
             <style>
+                /* Apply Signature Font to Marquee Text */
                 .site-footer__marquee .marquee_mode li {
-                    color: black; /* Change text color to black */
+                    font-family: 'Dancing Script', cursive; /* Signature-style font */
+                    font-size: 50px; /* Adjust size */
+                    font-weight: 700; /* Adjust thickness */
+                    color: black; /* Text color */
+                    text-transform: none; /* Keep original capitalization */
+                }
+        
+                /* Hover effect for marquee text */
+                .site-footer__marquee .marquee_mode li:hover {
+                    font-family: 'Pacifico', cursive; /* Another signature-style font for hover */
+                    font-weight: bold;
                 }
             </style>
             <ul class="marquee_mode">
@@ -524,11 +464,6 @@ if (authToken) {
                 <li>Private Yacht & Jet Charters</li>
             </ul>
         </div>
-        
-        
-
-        
-        <footer class="site-footer">
             <div class="container">
                 <div class="site-footer__top">
                     <div class="row d-flex justify-content-between">
