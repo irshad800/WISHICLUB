@@ -80,9 +80,7 @@
         </a>
     </div>
     <!-- Menu Icon for Mobile -->
-<div class="menu-icon" onclick="toggleMenu()">☰</div>
-
-<!-- Menu Icon for Mobile (Left Side) -->
+<!-- Menu Icon for Mobile (Right Side) -->
 <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
 <!-- Bottom Navigation (Right Side Dropdown) -->
@@ -91,15 +89,79 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="projects.html">Membership</a>
-    <a href="contact.html">Contact Us</a>
-</div>
+    <a href="contact.html">Contact Us</a>   
+    <!-- Placeholder for login/signup or logout -->
+<!-- Auth Menu Link for Desktop -->
+<!-- Auth Display for Desktop -->
+<div id="authAreaDesktop" style="margin-top: 10px; width: 100%;"></div>
 
+
+<script>
+    async function loadAuthArea() {
+        const authToken = localStorage.getItem("authToken");
+        const authAreaDesktop = document.getElementById("authAreaDesktop");
+        const authAreaMobile = document.getElementById("authAreaMobile");
+
+        if (!authToken) {
+            const loginLink = `<a href="login.html" style="color: white; font-size: 18px; display: block;">Login / Signup</a>`;
+            if (authAreaDesktop) authAreaDesktop.innerHTML = loginLink;
+            if (authAreaMobile) authAreaMobile.innerHTML = loginLink;
+            return;
+        }
+
+        try {
+            const res = await fetch("https://wishhospitality.ae/api/auth/user-details", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${authToken}`,
+                    "Content-Type": "application/json"
+                }
+            });
+
+            const data = await res.json();
+
+            if (data.Success && data.user) {
+                const userName = data.user.name || "User";
+
+                const logoutHTML = `
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 5px;">
+                        <button onclick="logoutUser()" 
+                            style="background-color: #009688; color: white; font-weight: bold; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
+                            Logout
+                        </button>
+                        <span style="font-size: 14px; color: white;">${userName}</span>
+                    </div>
+                `;
+
+                if (authAreaDesktop) authAreaDesktop.innerHTML = logoutHTML;
+                if (authAreaMobile) authAreaMobile.innerHTML = logoutHTML;
+            } else {
+                localStorage.clear();
+                window.location.href = "login.html";
+            }
+        } catch (err) {
+            console.error("Auth check failed:", err);
+            localStorage.clear();
+            window.location.href = "login.html";
+        }
+    }
+
+    function logoutUser() {
+        localStorage.removeItem("authToken");
+        window.location.href = "login.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", loadAuthArea);
+</script>
+
+
+</div>
 <!-- Right Side Login/Logout Button -->
 <!-- <div class="auth-container">
     <a id="authButton" href="login.html"></a>
 </div> -->
 <!-- Right Side Login/Signup Button with Image Icon -->
-<a href="login.html" style="position: fixed; top: 5px; right: 100px; z-index: 1000;">
+<a id="authButton" href="login.html" style="position: fixed; top: 5px; right: 100px; z-index: 1000;">
     <img src="assets/images/card_images/login-user-icon-white-head-VRokey7-600-removebg-preview.png" alt="Login" width="70" height="60">
 </a>
 <!-- Responsive Navigation Styles -->
@@ -196,19 +258,51 @@
         document.getElementById("bottomNav").classList.toggle("show");
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", async function () {
         const authToken = localStorage.getItem("authToken");
         const authButton = document.getElementById("authButton");
 
-        if (authToken) {
-            authButton.textContent = "Dashboard";
-            authButton.href = "dashboard.html";
-        } else {
-            authButton.textContent = "Login / Sign Up";
-            authButton.href = "login.html";
-        }
+        authButton.addEventListener("click", async function (e) {
+            e.preventDefault(); // Prevent default link behavior always
+
+            if (!authToken) {
+                // No token at all
+                return (window.location.href = "login.html");
+            }
+
+            try {
+                const res = await fetch("https://wishhospitality.ae/api/auth/user-details", {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${authToken}`,
+                        "Content-Type": "application/json"
+                    }
+                });
+
+                const data = await res.json();
+
+                if (data.Success && data.user) {
+                    // Authenticated user
+                    if (data.user.paymentStatus === "success") {
+                        window.location.href = "dashboard.html";
+                    } else {
+                        window.location.href = "payment.html";
+                    }
+                } else {
+                    // User not valid
+                    localStorage.clear();
+                    window.location.href = "login.html";
+                }
+            } catch (err) {
+                console.error("Auth check failed:", err);
+                localStorage.clear();
+                window.location.href = "login.html";
+            }
+        });
     });
 </script>
+
+
     </section>
 <!-- Right Aligned Login Button -->
 <div style="position: fixed; top: 20px; right: -250px; z-index: 2000;">
@@ -324,11 +418,11 @@
                     font-style: normal;
                 }
                 @font-face {
-                    font-family: 'cindyrella';
-                    src: url('assets/fonts/Cindyrella_Font_Family_(Fontmirror)/Cindyrella 400.ttf') format('truetype'); 
-                    font-weight: normal;
-                    font-style: normal;
-                }
+    font-family: 'Cindyrella'; /* Correct capitalization */
+    src: url('assets/fonts/Cindyrella_Font_Family_(Fontmirror)/Cindyrella 400.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
                 @font-face {
                     font-family: 'personal-use';
                     src: url('assets/fonts/personal-use/PersonalUse-Regular.otf') format('truetype'); 
@@ -368,41 +462,47 @@
                     font-family: 'barchella_drumal', sans-serif; /* Case-sensitive */
                 }
                 .project-eight__title {
-                    font-family: 'cindyrella', sans-serif; /* Case-sensitive */
+                    font-family: 'Cindyrella', sans-serif; /* Match font name */
+                     text-align: center;
+                    color: black;
                 }
                 .project-nine__title {
                     font-family: 'personal-use', sans-serif; /* Case-sensitive */
                     font-weight: bold;
-                    font-size: 35px;
+                    font-size: 50px;
                 }
-            </style>                
+            </style>  
+
+
                 <div class="swiper-slide">
                     <div class="project-two__single">
                         <div class="project-two__img">
                             <img src="assets/images/card/diamond frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-zero__title"><a href="project-details.html">Diamond Dune</a></h3>
+                            <h3 class="project-zero__title"><a href="Diamond Elite.html">Diamond Dune</a></h3>
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide">
                     <div class="project-two__single">
                         <div class="project-two__img">
                             <img src="assets/images/card/topaz frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-one__title"><a href="project-details1.html">Topaz Titan</a></h3>
+                            <h3 class="project-one__title"><a href="Topaz Titan.html">Topaz Titan</a></h3>
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide">
                     <div class="project-two__single">
                         <div class="project-two__img">
                             <img src="assets/images/card/elysian frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-two__title"><a href="project-details2.html">Elysian Elite</a></h3>
+                            <h3 class="project-two__title"><a href="Elysian Elite.html">Elysian Elite</a></h3>
                         </div>
                     </div>
                 </div>
@@ -413,7 +513,7 @@
                             <img src="assets/images/card/crystal frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-three__title"><a href="project-details7.html">Crystal Connoisseur</a></h3>
+                            <h3 class="project-three__title"><a href="Crystal Connoisseu.html">Crystal Connoisseur</a></h3>
                         </div>
                     </div>
                 </div>
@@ -424,7 +524,7 @@
                             <img src="assets/images/card/amber frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-four__title"><a href="project-details6.html">Amber Advocate</a></h3>
+                            <h3 class="project-four__title"><a href="Amber Advocate.html">Amber Advocate</a></h3>
                         </div>
                     </div>
                 </div>
@@ -435,7 +535,7 @@
                             <img src="assets/images/card/mystic frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-five__title"><a href="project-details3.html">Mystic Member</a></h3>
+                            <h3 class="project-five__title"><a href="Mystic Member.html">Mystic Member</a></h3>
                         </div>
                     </div>
                 </div>
@@ -446,7 +546,7 @@
                             <img src="assets/images/card/sapphire frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-six__title"><a href="project-details8.html">Sapphire Sentinel</a></h3>
+                            <h3 class="project-six__title"><a href="Sapphire Sentinel.html">Sapphire Sentinel</a></h3>
                         </div>
                     </div>
                 </div>
@@ -457,7 +557,7 @@
                             <img src="assets/images/card/pearl frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-seven__title"><a href="project-details9.html">Pearl Patron</a></h3>
+                            <h3 class="project-seven__title"><a href="Pearl Patron.html">Pearl Patron</a></h3>
                         </div>
                     </div>
                 </div>
@@ -468,7 +568,7 @@
                             <img src="assets/images/card/titanium frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-eight__title"><a href="project-details4.html">Titanium Treasure</a></h3>
+                            <h3 class="project-eight__title"><a href="Titanium TREASURE.html">Titanium Treasure</a></h3>
                         </div>
                     </div>
                 </div>
@@ -479,12 +579,12 @@
                             <img src="assets/images/card/aqua frnt.png" alt="">
                         </div>
                         <div class="project-two__content">
-                            <h3 class="project-nine__title"><a href="project-details5.html">Aqua Astra-Denala</a></h3>
+                            <h3 class="project-nine__title"><a href="AQUA ASTRA.html">Aqua Astra</a></h3>
                         </div>
                     </div>
                 </div>
+
             </div>
-            
             <!-- Pagination & Navigation -->
             <div class="swiper-pagination"></div>
             <div class="swiper-button-next"></div>
@@ -588,7 +688,7 @@
                                 </div>
                                 <ul class="footer-widget__link list-unstyled">
                                     <li><a href="about.html">Our Company</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
+                                    
                                     <li><a href="faq.html">FAQ</a></li>
                                     <li><a href="contact.html">Contact Us</a></li>
                                     <li><a href="contact.html">Write For Us</a></li>

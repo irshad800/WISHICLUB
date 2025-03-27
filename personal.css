@@ -232,3 +232,80 @@
       transform: translateX(0px);
     }
   } 
+
+
+  /* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .login-root {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .formbg {
+    max-width: 100%;
+    padding: 24px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .padding-horizontal--48 {
+    padding: 24px;
+  }
+
+  .loginbackground-gridContainer {
+    display: none; /* Hide background grid on mobile */
+  }
+
+  .field input {
+    font-size: 14px;
+    min-height: 40px;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .grid--50-50 {
+    grid-template-columns: 100%;
+  }
+
+  .footer-link span, .listing a {
+    font-size: 12px;
+  }
+
+  .animationRightLeft,
+  .animationLeftRight,
+  .tans3s,
+  .tans4s {
+    display: none; /* Hide background animations on mobile for performance */
+  }
+}
+
+@media (max-width: 480px) {
+  .field input {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .formbg {
+    padding: 20px;
+  }
+
+  span {
+    font-size: 18px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  .footer-link span {
+    font-size: 11px;
+  }
+
+  .listing a {
+    font-size: 12px;
+    margin: 0 5px;
+  }
+}
