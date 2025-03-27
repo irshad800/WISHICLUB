@@ -42,8 +42,21 @@
       </div>
       <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
         <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-          <h1><a href="http://blog.stackfindover.com/" rel="dofollow">Diamond Elite</a></h1>
+          <h1>
+            <a href="http://blog.stackfindover.com/" rel="dofollow" id="membership-card-name"></a>
+          </h1>
+          
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let cardName = localStorage.getItem('membershipCardName') || 'Diamond Elite';
+                document.getElementById("membership-card-name").textContent = cardName;
+            });
+          </script>
+          
         </div>
+
+
+      
         <div class="formbg-outer">
             <div class="formbg">
                 <div class="formbg-inner padding-horizontal--48">
@@ -110,11 +123,32 @@
     </button>
 
     <!-- Submit Button -->
-    <button id="submit-button" type="button" 
-    style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px;"
-    onclick="goToPaymentPage()">
-    Submit
+ <!-- Submit Button with Loader -->
+<button id="submit-button" type="button" onclick="submitApplication()"
+style="padding: 10px 20px; background-color: #007bff; color: white; border: none; 
+cursor: pointer; font-size: 16px; border-radius: 5px; display: flex; align-items: center;">
+<span id="submit-text">Submit</span>
+<div id="loading-spinner" class="loader" style="display: none; margin-left: 10px;"></div>
 </button>
+
+<!-- Error Message Display -->
+<p id="error-message" style="color: red; font-weight: bold; display: none;"></p>
+
+<style>/* Loader Animation */
+  .loader {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 3px solid #ffffff;
+    width: 15px;
+    height: 15px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  </style>
 
 <!-- <script>
 function goToPaymentPage() {
@@ -126,15 +160,39 @@ function goToPaymentPage() {
 
 <!-- JavaScript for Back Button -->
 <script>
-  document.getElementById("submit-button").addEventListener("click", async function() {
-    const personalData = JSON.parse(localStorage.getItem("personalInfo"));
-    const token = localStorage.getItem("authToken"); // User token
+ async function submitApplication() {
+    const submitButton = document.getElementById("submit-button");
+    const submitText = document.getElementById("submit-text");
+    const loader = document.getElementById("loading-spinner");
+    const errorDiv = document.getElementById("error-message");
 
-    if (!personalData.cardNumber || !personalData.cardName) {
-        alert("❌ Card details are missing! Please select a membership plan.");
+    // Prevent multiple submissions
+    submitButton.disabled = true;
+    submitText.textContent = "Submitting...";
+    loader.style.display = "inline-block";
+
+    // ✅ Retrieve Data from Local Storage
+    const personalData = JSON.parse(localStorage.getItem("personalInfo"));
+    const token = localStorage.getItem("authToken");
+
+    if (!personalData || !personalData.cardNumber || !personalData.cardName) {
+        showError("❌ Card details are missing! Please select a membership plan.");
+        resetButton();
         return;
     }
 
+    // ✅ Ensure `birthYear` is retrieved and validated
+    let birthYear = personalData.birthYear;
+
+    if (!birthYear || birthYear.length !== 4 || isNaN(birthYear)) {
+        showError("❌ Invalid birth year. Please check your date of birth.");
+        resetButton();
+        return;
+    }
+
+    console.log("✅ Sending Birth Year:", birthYear);
+
+    // ✅ Prepare Contact Data
     const contactData = {
         homeAddress: {
             street: document.getElementById("street").value,
@@ -148,15 +206,16 @@ function goToPaymentPage() {
         alternateContact: document.getElementById("alternate-contact").value
     };
 
-    const applicationData = { ...personalData, ...contactData };
+    // ✅ Combine All Data
+    const applicationData = { ...personalData, birthYear, ...contactData };
 
     try {
-        const response = await fetch("http://localhost:8080/api/application/submit-application", {
+        const response = await fetch("https://wishhospitality.ae/api/application/submit-application", {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
-            },
+            },  
             body: JSON.stringify(applicationData)
         });
 
@@ -164,19 +223,27 @@ function goToPaymentPage() {
 
         if (result.Success) {
             alert(`✅ Application Submitted Successfully! Member Card Number: ${result.memberCardNumber}`);
-            document.getElementById("generated-card-number").innerText = result.memberCardNumber;
-            
-            // ✅ Redirect to payment page only if successful
-            window.location.href = "paymentPage.html";
+
+            // ✅ Store Data in LocalStorage for Confirmation Page
+            localStorage.setItem("confirmationData", JSON.stringify({
+                ...applicationData,
+                memberCardNumber: result.memberCardNumber
+            }));
+
+            // ✅ Redirect to Confirmation Page
+            window.location.href = "confirmation.html";
         } else {
-            // ❌ Display error message in the frontend if submission fails
             showError(result.Message);
         }
     } catch (error) {
         console.error("❌ Error submitting application:", error);
         showError("❌ An unexpected error occurred. Please try again later.");
     }
-});
+
+    resetButton();
+}
+
+
 
 /**
  * ✅ Function to Show Error Message on the Frontend
@@ -187,8 +254,20 @@ function showError(message) {
     errorDiv.style.display = "block"; // Make the error message visible
 }
 
+/**
+ * ✅ Function to Reset Submit Button After Submission
+ */
+function resetButton() {
+    const submitButton = document.getElementById("submit-button");
+    const submitText = document.getElementById("submit-text");
+    const loader = document.getElementById("loading-spinner");
 
+    submitButton.disabled = false;
+    submitText.textContent = "Submit";
+    loader.style.display = "none";
+}
 </script>
+
                     </form>
                 </div>
             </div>
