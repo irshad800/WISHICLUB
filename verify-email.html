@@ -1,105 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Verified - Wish I Club</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Verified - Wish I Club</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 400px;
-        }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+    }
 
-        h2 {
-            color: #28a745;
-            font-size: 22px;
-        }
+    h2 {
+      color: #28a745;
+      font-size: 22px;
+    }
 
-        p {
-            color: #555;
-            font-size: 16px;
-        }
+    p {
+      color: #555;
+      font-size: 16px;
+    }
 
-        .countdown {
-            font-size: 18px;
-            font-weight: bold;
-            color: #007bff;
-            margin: 10px 0;
-        }
+    .countdown {
+      font-size: 18px;
+      font-weight: bold;
+      color: #007bff;
+      margin: 10px 0;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            margin-top: 10px;
-        }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
 
-        .btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h2>✅ Email Verified Successfully!</h2>
-        <p>Your email has been successfully verified.</p>
-        <p>Redirecting to dashboard in <span class="countdown">5</span> seconds...</p>
-        <a href="index.html" class="btn">Go to Dashboard</a>
-    </div>
+  <div class="container">
+    <h2>✅ Email Verified Successfully!</h2>
+    <p>Your email has been successfully verified.</p>
+    <p>Redirecting to payment page in <span class="countdown">5</span> seconds...</p>
+    <a href="payment.html" class="btn">Go to Payment</a>
+  </div>
 
-    <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get("token");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get("token");
 
-    if (token) {
+      if (token) {
         console.log("✅ Token received:", token);
-
-        // Store token in localStorage
         localStorage.setItem("authToken", token);
 
-        // Countdown Timer for redirect
         let timeLeft = 5;
         const countdownEl = document.querySelector(".countdown");
 
         const timer = setInterval(() => {
-            timeLeft--;
-            countdownEl.textContent = timeLeft;
+          timeLeft--;
+          countdownEl.textContent = timeLeft;
 
-            if (timeLeft <= 0) {
-                clearInterval(timer);
-                window.location.href = "dashboard.html"; // Redirect to Dashboard
-            }
+          if (timeLeft <= 0) {
+            clearInterval(timer);
+            window.location.href = "payment.html";
+          }
         }, 1000);
-    } else {
+      } else {
         console.log("❌ No token found in URL");
         document.querySelector("h2").innerText = "❌ Invalid Verification Link!";
         document.querySelector("p").innerText = "The verification link is invalid or expired.";
-    }
-});
-
-
-    </script>
+        document.querySelector(".btn").style.display = "none";
+      }
+    });
+  </script>
 
 </body>
 </html>

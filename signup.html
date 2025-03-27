@@ -77,170 +77,240 @@
     <div class="theme-border-left"></div>
     <div class="theme-border-right"></div>
 
-
-    <!-- Start sidebar widget content -->
-    <div class="xs-sidebar-group info-group info-sidebar">
-        <div class="xs-overlay xs-bg-black"></div>
-        <div class="xs-sidebar-widget">
-            <div class="sidebar-widget-container">
-                <div class="widget-heading">
-                    <a href="#" class="close-side-widget">X</a>
-                </div>
-                <div class="sidebar-textwidget">
-                    <div class="sidebar-info-contents">
-                        <div class="content-inner">
-                            <div class="logo">
-                                <img src="assets/images/Wish Club Logo.JPG" width="150" alt="Wish Club Logo" />
-                            </div>
-                            <div class="content-box">
-                                <h4>SIGN UP</h4>
-                            </div>
-                            <div class="form-inner">
-                                <h4>Get a free quote</h4>
-                                <form action="assets/inc/sendemail.php" class="contact-form-validated"
-                                    novalidate="novalidate">
-                                    <div class="form-group">
-                                        <input type="text" name="name" placeholder="Name" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" name="email" placeholder="Email" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea name="message" placeholder="Message..."></textarea>
-                                    </div>
-                                    <div class="form-group message-btn">
-                                        <button type="submit" class="thm-btn form-inner__btn">Submit Now</button>
-                                    </div>
-                                </form>
-                                <div class="result"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Wish I Club</title>
+        <!-- favicons Icons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets\images\Wish Club Logo.JPG" />
+        <link rel="icon" type="image/png" sizes="32x32" href="assets\images\Wish Club Logo.JPG" />
+        <link rel="icon" type="image/png" sizes="16x16" href="assets\images\Wish Club Logo.JPG" />
+        <link rel="manifest" href="assets\images\Wish Club Logo.JPG" />
+        <meta name="description" content="tecture HTML 5 Template " />
+    
+    
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+    
+    
+    
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/css/animate.min.css" />
+        <link rel="stylesheet" href="assets/css/custom-animate.css" />
+        <link rel="stylesheet" href="assets/css/swiper.min.css" />
+        <link rel="stylesheet" href="assets/css/font-awesome-all.css" />
+        <link rel="stylesheet" href="assets/css/jarallax.css" />
+        <link rel="stylesheet" href="assets/css/jquery.magnific-popup.css" />
+        <link rel="stylesheet" href="assets/css/odometer.min.css" />
+        <link rel="stylesheet" href="assets/css/flaticon.css">
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+        <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+        <link rel="stylesheet" href="assets/css/nice-select.css" />
+        <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+        <link rel="stylesheet" href="assets/css/twentytwenty.css" />
+    
+    
+        <link rel="stylesheet" href="assets/css/module-css/slider.css" />
+        <link rel="stylesheet" href="assets/css/module-css/footer.css" />
+        <link rel="stylesheet" href="assets/css/module-css/feature.css" />
+        <link rel="stylesheet" href="assets/css/module-css/about.css" />
+        <link rel="stylesheet" href="assets/css/module-css/sliding-text.css" />
+        <link rel="stylesheet" href="assets/css/module-css/services.css" />
+        <link rel="stylesheet" href="assets/css/module-css/projects.css" />
+        <link rel="stylesheet" href="assets/css/module-css/design-interior.css" />
+        <link rel="stylesheet" href="assets/css/module-css/testimonial.css" />
+        <link rel="stylesheet" href="assets/css/module-css/video.css" />
+        <link rel="stylesheet" href="assets/css/module-css/awards.css" />
+        <link rel="stylesheet" href="assets/css/module-css/blog.css" />
+        <link rel="stylesheet" href="assets/css/module-css/brand.css" />
+        <link rel="stylesheet" href="assets/css/module-css/counter.css" />
+        <link rel="stylesheet" href="assets/css/module-css/team.css" />
+        <link rel="stylesheet" href="assets/css/module-css/contact.css" />
+        <link rel="stylesheet" href="assets/css/module-css/page-header.css" />
+        <link rel="stylesheet" href="assets/css/module-css/error-page.css" />
+        <link rel="stylesheet" href="assets/css/module-css/google-map.css" />
+    
+        <!-- template styles -->
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/responsive.css" />
+    </head>
+    
+    <body class="body-bg-color-1">
+    
+    
+    
+        <div class="preloader">
+            <div class="preloader__image"></div>
         </div>
+        <!-- /.preloader -->
+    
+        <div class="theme-border-left"></div>
+        <div class="theme-border-right"></div>
+    
+    
+    
+    <!-- Menu Icon for Mobile (Left Side) -->
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    
+    <!-- Bottom Navigation (Left Side Dropdown) -->
+    <div class="bottom-navigation" id="bottomNav">
+        <span class="close-menu" onclick="toggleMenu()">✖</span> <!-- Close Button -->
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Membership</a>
+        <a href="contact.html">Contact Us</a>
     </div>
-    <!-- End sidebar widget content -->
-
-
-    <div class="theme-border-left"></div>
-    <div class="theme-border-right"></div>
-
-
-    <div class="page-wrapper">
-        <header class="main-header">
-            <nav class="main-menu">
-                <div class="main-menu__wrapper">
-                    <div class="container">
-                        <div class="main-menu__wrapper-inner">
-                            <div class="main-menu__logo">
-                                <div class="section-shape-1" style="background-color: #f5f5f5"; height: 200px; width: 200px;></div>
-                                <a href="index.html"><img src="assets/images/Wish Club Logo.JPG" alt="" style="height: 100px; width: 100px;"></a>
-                                </div>
-                            <div class="main-menu__top">
-                                <div class="main-menu__top-inner">
-                                    <ul class="list-unstyled main-menu__contact-list">
-                                        <li>
-                                            <div class="icon">
-                                                <i class="icon-telephone"></i>
-                                            </div>
-                                            <div class="text">
-                                                <p><a href="tel:054 247 9199">054 247 9199</a></p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="icon">
-                                                <i class="icon-envelope-2"></i>
-                                            </div>
-                                            <div class="text">
-                                                <p><a href="mailto:info@wishiclub.com">info@wishiclub.com</a>
-                                                </p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="main-menu__top-right">
-                                        <div class="main-menu__top-time">
-                                        </div>
-                                        <div class="main-menu__social">
-                                            <a href="https://www.youtube.com/@WishIslandClub"><i class="fab fa-youtube"></i></i></a>
-                                            <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
-                                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="main-menu__bottom">
-                                <div class="main-menu__main-menu-box">
-                                    <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-                                    <ul class="main-menu__list">
-                                        <li class="">
-                                            <a href="index.html">Home </a>
-                                        </li>
-                                        <li>
-                                            <a href="about.html">About Us</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="services.html">Services</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="projects.html">Membership</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="blog.html">Blog</a>
-                                        </li>
-                                        <li>
-                                            <a href="contact.html">Contact</a>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="main-menu__search-and-btn-box">
-                                    <div class="main-menu__search-box">
-                                        <a href="#"
-                                            class="main-menu__search search-toggler icon-search-interface-symbol">
-                                        </a>
-                                    </div>
-                                    <div class="main-menu__btn-box">
-                                        <a href="contact.html" class="thm-btn main-menu__btn">
-                                            Free Quote <span class="icon-up-right-arrow"></span>
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <div class="stricky-header stricked-menu main-menu main-menu-two">
-            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-        </div><!-- /.stricky-header -->
-
-
-        <!--Page Header Start-->
-        <section class="page-header">
-            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/login-header-bg.jpg);">
-            </div>
-            <div class="container">
-                <div class="page-header__inner">
-                    <div class="page-header__title-box">
-                        <p>Unlock a World of Luxury – Your Private Escape Awaits!</p>
-                        <h3>Login / Sign Up</h3>
-                    </div>
-                    <div class="thm-breadcrumb__box">
-                        <ul class="thm-breadcrumb list-unstyled">
-                            <li><a href="index.html">Home</a></li>
-                            <li><span>/</span></li>
-                            <li>Sign Up</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!--Page Header End-->
+    
+    <!-- Right Side Login/Logout Button -->
+    <div class="auth-container">
+        <a id="authButton" href="login.html">Login / Sign Up</a>
+    </div>
+    
+    <!-- Responsive Navigation Styles -->
+    <style>
+        /* Default Navigation (Desktop) */
+        .bottom-navigation {
+            position: fixed;
+            top: 0;
+            left: -100%; /* Hidden by default for mobile */
+            width: 250px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 0;
+            text-align: left;
+            gap: 15px;
+            transition: left 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: flex-start;
+            z-index: 2000;
+        }
+    
+        .bottom-navigation.show {
+            left: 0; /* Show menu */
+        }
+    
+        .bottom-navigation a {
+            font-size: 18px;
+            display: block;
+            padding: 15px;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            width: 100%;
+        }
+    
+        .bottom-navigation a:hover {
+            color: #ffcc00;
+        }
+    
+        /* Menu Icon (Left Side) */
+        .menu-icon {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            display: block;
+            z-index: 3000;
+        }
+    
+        /* Close Button (Inside Menu) */
+        .close-menu {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            display: block;
+        }
+    
+        /* Login/Logout Button (Right Side) */
+        .auth-container {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            z-index: 3000;
+        }
+    
+        .auth-container a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 15px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+    
+        .auth-container a:hover {
+            background: #ffcc00;
+            color: black;
+        }
+    
+        /* Responsive Design for Mobile */
+        @media screen and (max-width: 768px) {
+            .bottom-navigation {
+                width: 100%; /* Full-screen on mobile */
+            }
+    
+            .menu-icon {
+                font-size: 26px;
+                top: 10px;
+            }
+    
+            .close-menu {
+                font-size: 30px;
+                right: 20px;
+            }
+    
+            .auth-container {
+                top: 10px;
+                right: 15px;
+            }
+    
+            .auth-container a {
+                font-size: 16px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+    
+    <!-- JavaScript for Menu Toggle & Login Button -->
+    <script>
+        function toggleMenu() {
+            document.getElementById("bottomNav").classList.toggle("show");
+        }
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            const authToken = localStorage.getItem("authToken");
+            const authButton = document.getElementById("authButton");
+    
+            if (authToken) {
+                authButton.textContent = "Dashboard";
+                authButton.href = "dashboard.html";
+            } else {
+                authButton.textContent = "Login / Sign Up";
+                authButton.href = "login.html";
+            }
+        });
+    </script>
+    
+          
+    
 
 
 <!-- SIGN-UP -->
@@ -254,7 +324,14 @@
                     Unlock access to <strong>private villas</strong>, <strong>luxury island getaways</strong>, and <strong>premium services</strong>. <br>
                     Create an account today to begin your <em>unforgettable journey</em>.
                 </span>
-            </p>
+            </p><div style="background: rgba(0, 0, 0, 0.6); padding: 15px 20px; border-radius: 10px; display: inline-block; margin-top: 15px;">
+                <strong style="color: #f5f5f5; font-weight: 600;">
+                    Note: Membership is activated only after a one-time payment of 
+                    <span style="color: #FFD700; font-weight: 700; text-shadow: 0 0 5px #FFD700;">$50</span>, 
+                    following email verification or Google Sign-In.
+                </strong>
+            </div>
+            
         </div>
 
         <div class="row justify-content-center">
@@ -303,7 +380,9 @@
                                 <small id="confirmPassword-hint" style="color: #dc3545;">Passwords must match.</small>
                             </div>
                             
-                            <button type="submit" class="thm-btn btn-primary big-button" id="authButton">Sign Up</button>
+                            <button type="submit" class="thm-btn btn-primary big-button" id="signUpButton">Sign Up</button>
+
+
                         </form>
                         <p class="switch-text">
                             <a href="login.html" id="toggleForm">Already have an account? <strong>Login</strong></a>
@@ -346,14 +425,21 @@
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
 </style>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const API_BASE_URL = "http://localhost:8080/api/auth"; // Replace with your actual API URL
-    const signUpForm = document.getElementById("authForm");
-    const authButton = document.getElementById("authButton");
+<script src="https://accounts.google.com/gsi/client" async defer onload="onGoogleLibraryLoad()"></script>
+<!-- Google Library -->
+<script src="https://accounts.google.com/gsi/client" async defer onload="onGoogleLibraryLoad()"></script>
 
-    // Function to set loading state for the button
+<script>
+// ✅ Redirect if token already exists (before anything else runs)
+if (localStorage.getItem("authToken")) {
+    window.location.href = "index.html";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const API_BASE_URL = "https://wishhospitality.ae//api/auth";
+    const signUpForm = document.getElementById("authForm");
+    const authButton = document.getElementById("signUpButton");
+
     function setLoadingState(button, isLoading) {
         if (isLoading) {
             button.dataset.originalText = button.innerHTML;
@@ -365,7 +451,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to check availability of fields (username, email)
     async function checkAvailability(field, value, hintElementId) {
         if (value.length < 5) {
             document.getElementById(hintElementId).textContent = `${field} must be at least 5 characters`;
@@ -396,7 +481,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Check username availability (Must contain at least one letter and one number)
     document.getElementById("username").addEventListener("keyup", function () {
         const username = this.value.trim();
         if (username.match(/[A-Za-z]/) && username.match(/\d/)) {
@@ -407,32 +491,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Check email availability
     document.getElementById("email").addEventListener("keyup", function () {
         checkAvailability("email", this.value.trim(), "email-hint");
     });
 
-    // Phone number validation with regex
-// ✅ Phone number validation - Now Optional
-document.getElementById("phone").addEventListener("keyup", function () {
-    const phone = this.value.trim();
-    const phoneHint = document.getElementById("phone-hint");
+    document.getElementById("phone").addEventListener("keyup", function () {
+        const phone = this.value.trim();
+        const phoneHint = document.getElementById("phone-hint");
 
-    const phoneRegex = /^(\+?\d{1,3}[-\s]?)?(\(?\d{2,4}\)?[-\s]?)?\d{7,10}$/;
+        const phoneRegex = /^(\+?\d{1,3}[-\s]?)?(\(?\d{2,4}\)?[-\s]?)?\d{7,10}$/;
 
-    if (phone === "") {
-        phoneHint.textContent = "Phone number is optional.";
-        phoneHint.style.color = "#6c757d"; // Neutral gray
-    } else if (phoneRegex.test(phone)) {
-        phoneHint.textContent = "Valid phone number!";
-        phoneHint.style.color = "#28a745"; // Green
-    } else {
-        phoneHint.textContent = "Enter a valid phone number.";
-        phoneHint.style.color = "#dc3545"; // Red
-    }
-});
+        if (phone === "") {
+            phoneHint.textContent = "Phone number is optional.";
+            phoneHint.style.color = "#6c757d";
+        } else if (phoneRegex.test(phone)) {
+            phoneHint.textContent = "Valid phone number!";
+            phoneHint.style.color = "#28a745";
+        } else {
+            phoneHint.textContent = "Enter a valid phone number.";
+            phoneHint.style.color = "#dc3545";
+        }
+    });
 
-    // Password validation
     document.getElementById("password").addEventListener("keyup", function () {
         const password = this.value;
         const passwordHint = document.getElementById("password-hint");
@@ -447,7 +527,6 @@ document.getElementById("phone").addEventListener("keyup", function () {
         }
     });
 
-    // Confirm password validation (✅ Green for Match, ❌ Red for Mismatch)
     document.getElementById("confirmPassword").addEventListener("keyup", function () {
         const password = document.getElementById("password").value;
         const confirmPassword = this.value;
@@ -464,12 +543,10 @@ document.getElementById("phone").addEventListener("keyup", function () {
         }
     });
 
-    // Ensure full name does not turn red
     document.getElementById("name").addEventListener("keyup", function () {
-        document.getElementById("name-hint").textContent = ""; // No error message for full name
+        document.getElementById("name-hint").textContent = "";
     });
 
-    // Form submission handling
     signUpForm.addEventListener("submit", async function (e) {
         e.preventDefault();
         setLoadingState(authButton, true);
@@ -500,7 +577,7 @@ document.getElementById("phone").addEventListener("keyup", function () {
             setLoadingState(authButton, false);
 
             if (data.Success) {
-                alert("Registration successful!");
+                alert("Registration successful! A verification email has been sent to your email account.");
                 window.location.href = "login.html";
             } else {
                 alert(data.Message);
@@ -513,46 +590,65 @@ document.getElementById("phone").addEventListener("keyup", function () {
     });
 });
 
+// ✅ Google Sign-In Initialization on load
+function onGoogleLibraryLoad() {
+    google.accounts.id.initialize({
+        client_id: "943943681356-hvn7a3of5l0j04ur9pnmvo7cj2mu95gi.apps.googleusercontent.com",
+        callback: handleGoogleSignIn
+    });
 
-   // ✅ Google Sign-In Integration
-        google.accounts.id.initialize({
-            client_id: "734550685702-d4kf74alpjcqdr9j5nu6utg25lmj97sq.apps.googleusercontent.com", // Replace with your Google Client ID
-            callback: handleGoogleSignIn
+    google.accounts.id.renderButton(
+        document.getElementById("google-signin-button"),
+        { theme: "outline", size: "large" }
+    );
+}
+
+// ✅ Google Sign-In Handler
+async function handleGoogleSignIn(response) {
+    const signUpButton = document.getElementById("signUpButton");
+    if (!signUpButton) return;
+
+    signUpButton.disabled = true;
+    signUpButton.innerHTML = 'Processing...';
+
+    try {
+        const res = await fetch("https://wishhospitality.ae/api/auth/google-login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token: response.credential })
         });
 
-        google.accounts.id.renderButton(
-            document.getElementById("google-signin-button"),
-            { theme: "outline", size: "large" }
-        );
+        const data = await res.json();
+        if (data.Success) {
+            alert("✅ Google Login Successful!");
+            localStorage.setItem("authToken", data.token);
+            localStorage.setItem("userId", data.userId);
+            localStorage.setItem("profilePicture", data.profilePicture || "");
 
-        async function handleGoogleSignIn(response) {
-            setLoadingState(authButton, true);
-
-            try {
-                const res = await fetch("http://localhost:8080/api/auth/google-login", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ token: response.credential })
-                });
-
-                const data = await res.json();
-                setLoadingState(authButton, false);
-
-                if (data.Success) {
-                    alert("Google Login Successful");
-                    localStorage.setItem("token", data.token);
-                    window.location.href = "dashboard.html"; // Redirect to the dashboard page
-                } else {
-                    alert(data.Message);
+            const userRes = await fetch("https://wishhospitality.ae/api/auth/user-details", {
+                headers: {
+                    Authorization: `Bearer ${data.token}`,
+                    "Content-Type": "application/json"
                 }
-            } catch (error) {
-                console.error("Google Login Error:", error);
-                alert("Google login failed. Please try again.");
-                setLoadingState(authButton, false);
+            });
+
+            const userData = await userRes.json();
+            if (userData.Success && userData.user.paymentStatus === "success") {
+                window.location.href = "dashboard.html";
+            } else {
+                window.location.href = "payment.html";
             }
         }
- 
+    } catch (error) {
+        console.error("Google Login Error:", error);
+        alert("An error occurred during Google login.");
+    } finally {
+        signUpButton.disabled = false;
+        signUpButton.innerHTML = "Sign Up";
+    }
+}
 </script>
+
 
 <style>
     .login-section {
@@ -684,15 +780,14 @@ display: none; /* Hide registration fields initially */
 
         
     
-        <!--Site Footer Start-->
-        <footer class="site-footer">
+          <!--Site Footer Start-->
+          <footer class="site-footer">
             <div class="site-footer__shape-1 float-bob-x">
                 <img src="assets/images/shapes/site-footer-shape-1.png" alt="">
             </div>
             <div class="site-footer__shape-2 float-bob-y">
                 <img src="assets/images/shapes/site-footer-shape-2.png" alt="">
             </div>
-
             <div class="site-footer__marquee">
                 <style>
                     .site-footer__marquee .marquee_mode li {
@@ -713,229 +808,161 @@ display: none; /* Hide registration fields initially */
             </div>
             
             
-
-            <div class="container">
-                <div class="site-footer__top">
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
-                            <div class="footer-widget__column footer-widget__about">
-                                <div class="footer-widget__logo">
-                                    <a href="index.html"><img src="assets/images/resources/footer-logo-1.png"
-                                            alt=""></a>
-                                </div>
-                                <p class="footer-widget__about-text">Eros vivamus platea nullam id consequat eu sociis
-                                    lectus aliquam nibh auctor elitsed libero pharetra consequat and fad sociis conubia
-                                    favorite to risus.</p>
-                                <div class="site-footer__social">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-facebook"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
+    
+            <footer class="site-footer">
+                <div class="container">
+                    <div class="site-footer__top">
+                        <div class="row d-flex justify-content-between">
+                            <!-- About Section (Left) -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms" style="text-align: left;">
+                                <div class="footer-widget__column footer-widget__about">
+                                    <div class="logo-box">
+                                        <a href="index.html" aria-label="logo image">
+                                            <img src="assets/images/Wish Club Logo.JPG" width="150" alt="Wish Club Logo" />
+                                        </a>
+                                    </div>
+                                    <p class="footer-widget__about-text">
+                                        The Wish Island Membership Club is a haven of luxury, exclusivity, and personalized experiences, where every moment is crafted for those who seek the finest in life.
+                                    </p>
+                                    <div class="main-menu__social">
+                                        <a href="https://www.youtube.com/@WishIslandClub"><i class="fab fa-youtube"></i></a>
+                                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                            <div class="footer-widget__column footer-widget__usefull-link">
-                                <div class="footer-widget__title-box">
-                                    <h3 class="footer-widget__title">Useful Links</h3>
-                                </div>
-                                <div class="footer-widget__link-box">
+            
+                            <!-- Useful Links (Right) -->
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms" style="text-align: right;">
+                                <div class="footer-widget__column footer-widget__usefull-link">
+                                    <div class="footer-widget__title-box">
+                                        <h3 class="footer-widget__title">Useful Links</h3>
+                                    </div>
                                     <ul class="footer-widget__link list-unstyled">
-                                        <li><a href="contact.html">Our Support</a></li>
-                                        <li><a href="about.html">System Status</a></li>
-                                        <li><a href="about.html">Knowledge base</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="contact.html">Contact us</a></li>
+                                        <li><a href="about.html">Our Company</a></li>
+                                     
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
                                         <li><a href="contact.html">Write For Us</a></li>
                                     </ul>
-                                    <ul class="footer-widget__link footer-widget__link-2 list-unstyled">
-                                        <li><a href="about.html">Ebooks</a></li>
-                                        <li><a href="about.html">Cloudways Users</a></li>
-                                        <li><a href="about.html">Group</a></li>
-                                        <li><a href="about.html">Customer Voice</a></li>
-                                        <li><a href="about.html">Properties Right</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
-                            <div class="footer-widget__column footer-widget__services">
-                                <div class="footer-widget__title-box">
-                                    <h3 class="footer-widget__title">Our Services</h3>
-                                </div>
-                                <ul class="footer-widget__link list-unstyled">
-                                    <li><a href="harmony-interiors.html">Harmony Interiors</a></li>
-                                    <li><a href="about.html">Amman Rotane Hotel</a></li>
-                                    <li><a href="about.html">European Lard Sration</a></li>
-                                    <li><a href="evolve-space-designs.html">Evolve Space Designs</a></li>
-                                    <li><a href="eden-home-styling.html">Eden Home Styling</a></li>
-                                    <li><a href="interior-design.html">Interior Design </a></li>
-                                    <li><a href="urban-design.html">Human Resources</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
-                            <div class="footer-widget__column footer-widget__instagram">
-                                <div class="footer-widget__title-box">
-                                    <h3 class="footer-widget__title">Instagram</h3>
-                                </div>
-                                <ul class="footer-widget__instagram-list list-unstyled clearfix">
-                                    <li>
-                                        <div class="footer-widget__instagram-img">
-                                            <img src="assets/images/resources/footer-widget-instagram-img-1.jpg" alt="">
-                                            <a href="#"><span class="fab fa-instagram"></span></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="footer-widget__instagram-img">
-                                            <img src="assets/images/resources/footer-widget-instagram-img-2.jpg" alt="">
-                                            <a href="#"><span class="fab fa-instagram"></span></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="footer-widget__instagram-img">
-                                            <img src="assets/images/resources/footer-widget-instagram-img-3.jpg" alt="">
-                                            <a href="#"><span class="fab fa-instagram"></span></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="footer-widget__instagram-img">
-                                            <img src="assets/images/resources/footer-widget-instagram-img-4.jpg" alt="">
-                                            <a href="#"><span class="fab fa-instagram"></span></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="footer-widget__instagram-img">
-                                            <img src="assets/images/resources/footer-widget-instagram-img-5.jpg" alt="">
-                                            <a href="#"><span class="fab fa-instagram"></span></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="footer-widget__instagram-img">
-                                            <img src="assets/images/resources/footer-widget-instagram-img-6.jpg" alt="">
-                                            <a href="#"><span class="fab fa-instagram"></span></a>
-                                        </div>
-                                    </li>
+                    </div>
+            
+                    <!-- Footer Bottom Section -->
+                    <div class="site-footer__bottom">
+                        <div class="container">
+                            <div class="site-footer__bottom-inner d-flex justify-content-between">
+                                <p class="site-footer__bottom-text">© 2025 Copyright <a href="#">Wish I Club</a> | All rights reserved</p>
+                                <ul class="list-unstyled site-footer__bottom-menu d-flex">
+                                    <li><a href="about.html">Privacy & Policy</a></li>
+                                    <li><a href="about.html">Terms of Use</a></li>
+                                    <li><a href="about.html">Cookie Policy</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="site-footer__bottom">
-                <div class="container">
-                    <div class="site-footer__bottom-inner">
-                        <p class="site-footer__bottom-text">© 2024
-                            Copyright <a href="#">Tecture.</a> | All rights reserved</p>
-                        <ul class="list-unstyled site-footer__bottom-menu">
-                            <li><a href="about.html">Privacy & Policy</a></li>
-                            <li><a href="about.html">Terms of use</a></li>
-                            <li><a href="about.html">Cookie Policy</a></li>
-                        </ul>
-                    </div>
+            </footer>
+        </div><!-- /.page-wrapper -->
+    
+    
+        <div class="mobile-nav__wrapper">
+            <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+            <!-- /.mobile-nav__overlay -->
+            <div class="mobile-nav__content">
+                <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+    
+                <div class="logo-box">
+                    <a href="index.html" aria-label="logo image"><img src="assets/images/Wish Club Logo.JPG" width="150"
+                            alt="" /></a>
                 </div>
+                <!-- /.logo-box -->
+                <div class="mobile-nav__container"></div>
+                <!-- /.mobile-nav__container -->
+    
+                <ul class="mobile-nav__contact list-unstyled">
+                    <li>
+                        <i class="fa fa-envelope"></i>
+                        <a href="mailto:info@wishiclub.com">info@wishiclub.com</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-phone-alt"></i>
+                        <a href="tel:054 247 9199">054 247 9199</a>
+                        <a href="tel:9609991054">+9609991054</a>
+                    </li>
+                </ul><!-- /.mobile-nav__contact -->
+                <div class="mobile-nav__top">
+                    <div class="main-menu__social">
+                        <a href="https://www.youtube.com/@WishIslandClub"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    </div><!-- /.mobile-nav__social -->
+                </div><!-- /.mobile-nav__top -->
+    
+    
+    
             </div>
-        </footer>
-        <!--Site Footer End-->
-
-
-    </div><!-- /.page-wrapper -->
-
-
-    <div class="mobile-nav__wrapper">
-        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-        <!-- /.mobile-nav__overlay -->
-        <div class="mobile-nav__content">
-            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-
-            <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/resources/logo-1.png" width="150"
-                        alt="" /></a>
+            <!-- /.mobile-nav__content -->
+        </div>
+        <!-- /.mobile-nav__wrapper -->
+    
+        <div class="search-popup">
+            <div class="search-popup__overlay search-toggler"></div>
+            <!-- /.search-popup__overlay -->
+            <div class="search-popup__content">
+                <form action="#">
+                    <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+                    <input type="text" id="search" placeholder="Search Here..." />
+                    <button type="submit" aria-label="search submit" class="thm-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
             </div>
-            <!-- /.logo-box -->
-            <div class="mobile-nav__container"></div>
-            <!-- /.mobile-nav__container -->
-
-            <ul class="mobile-nav__contact list-unstyled">
-                <li>
-                    <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@packageName__.com">needhelp@tecture.com</a>
-                </li>
-                <li>
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:666-888-0000">666 888 0000</a>
-                </li>
-            </ul><!-- /.mobile-nav__contact -->
-            <div class="mobile-nav__top">
-                <div class="mobile-nav__social">
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-facebook-square"></a>
-                    <a href="#" class="fab fa-pinterest-p"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                </div><!-- /.mobile-nav__social -->
-            </div><!-- /.mobile-nav__top -->
-
-
-
+            <!-- /.search-popup__content -->
         </div>
-        <!-- /.mobile-nav__content -->
-    </div>
-    <!-- /.mobile-nav__wrapper -->
-
-    <div class="search-popup">
-        <div class="search-popup__overlay search-toggler"></div>
-        <!-- /.search-popup__overlay -->
-        <div class="search-popup__content">
-            <form action="#">
-                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                <input type="text" id="search" placeholder="Search Here..." />
-                <button type="submit" aria-label="search submit" class="thm-btn">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-        </div>
-        <!-- /.search-popup__content -->
-    </div>
-    <!-- /.search-popup -->
-
-    <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
-        <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
-        <span class="scroll-to-top__text"> Go Back Top</span>
-    </a>
-
-
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/jarallax.min.js"></script>
-    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
-    <script src="assets/js/jquery.appear.min.js"></script>
-    <script src="assets/js/swiper.min.js"></script>
-    <script src="assets/js/jquery.circle-progress.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/jquery.validate.min.js"></script>
-    <script src="assets/js/odometer.min.js"></script>
-    <script src="assets/js/wNumb.min.js"></script>
-    <script src="assets/js/wow.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery-ui.js"></script>
-    <script src="assets/js/jquery.circleType.js"></script>
-    <script src="assets/js/jquery.lettering.min.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    <script src="assets/js/marquee.min.js"></script>
-    <script src="assets/js/countdown.min.js"></script>
-    <script src="assets/js/jquery-sidebar-content.js"></script>
-    <script src="assets/js/twentytwenty.js"></script>
-    <script src="assets/js/jquery.event.move.js"></script>
-    <script src="assets/js/gsap/gsap.js"></script>
-    <script src="assets/js/gsap/ScrollTrigger.js"></script>
-    <script src="assets/js/gsap/SplitText.js"></script>
-
-
-
-
-    <!-- template js -->
-    <script src="assets/js/script.js"></script>
-</body>
-
-</html>
+        <!-- /.search-popup -->
+    
+        <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+            <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
+            <span class="scroll-to-top__text"> Go Back Top</span>
+        </a>
+    
+    
+        <script src="assets/js/jquery-3.6.0.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/jarallax.min.js"></script>
+        <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+        <script src="assets/js/jquery.appear.min.js"></script>
+        <script src="assets/js/swiper.min.js"></script>
+        <script src="assets/js/jquery.circle-progress.min.js"></script>
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="assets/js/jquery.validate.min.js"></script>
+        <script src="assets/js/odometer.min.js"></script>
+        <script src="assets/js/wNumb.min.js"></script>
+        <script src="assets/js/wow.js"></script>
+        <script src="assets/js/isotope.js"></script>
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="assets/js/jquery-ui.js"></script>
+        <script src="assets/js/jquery.circleType.js"></script>
+        <script src="assets/js/jquery.lettering.min.js"></script>
+        <script src="assets/js/jquery.nice-select.min.js"></script>
+        <script src="assets/js/marquee.min.js"></script>
+        <script src="assets/js/countdown.min.js"></script>
+        <script src="assets/js/jquery-sidebar-content.js"></script>
+        <script src="assets/js/twentytwenty.js"></script>
+        <script src="assets/js/jquery.event.move.js"></script>
+        <script src="assets/js/gsap/gsap.js"></script>
+        <script src="assets/js/gsap/ScrollTrigger.js"></script>
+        <script src="assets/js/gsap/SplitText.js"></script>
+    
+    
+    
+    
+        <!-- template js -->
+        <script src="assets/js/script.js"></script>
+        <script src="new.js"></script>
+    </body>
+    
+    </html>
