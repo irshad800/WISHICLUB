@@ -420,23 +420,164 @@ textarea {
     color: #FFD700;
 }
 
+/* ✅ Responsive Sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        width: 250px;
+        height: 100%;
+        background: #1E1E1E;
+        padding: 20px;
+        transition: left 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    .sidebar img {
+        width: 100px;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    .main-content {
+        padding: 15px;
+        margin-left: 0;
+    }
+}
+
+/* ✅ Responsive Cards & Stats */
+@media (max-width: 768px) {
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        min-width: unset;
+        text-align: center;
+    }
+
+    .image-container {
+        flex-direction: column;
+    }
+
+    .card-image {
+        max-width: 90%;
+    }
+}
+
+/* ✅ User Info & Profile Picture */
+@media (max-width: 480px) {
+    .user-info {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #profilePicture {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+}
+
+/* ✅ Review Section (Mobile-Friendly) */
+@media (max-width: 768px) {
+    .review-stars {
+        justify-content: space-around;
+    }
+
+    .star {
+        font-size: 20px;
+    }
+
+    .review-preview {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
 
 
         </style>
     </head>
 
-    <body>
+    <body><script>function fetchUserDetails() {
+        fetch("https://wishhospitality.ae/api/auth/user-details", {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${authToken}`,
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Debug: User Details API Response →", data);
+    
+            if (data.Success && data.user) {
+                // ✅ Redirect if paymentStatus is NOT 'success'
+                if (data.user.paymentStatus !== "success") {
+                    alert("Please complete your membership payment to access the dashboard.");
+                    window.location.href = "index.html";
+                    return;
+                }
+    
+                userId = data.user.userId;
+                updateDashboard(data.user, "user-details");
+            } else {
+                console.error("Error: User not found in API response", data);
+                displayNoData("user-details");
+                window.location.href = "index.html";
+            }
+        })
+        .catch(error => {
+            console.error("Fetch error in user details:", error);
+            displayNoData("user-details");
+            window.location.href = "index.html";
+        });
+    }
+    </script>
 
-        <div class="sidebar">
-        
-            <img src="assets/images/Wish Club Logo.JPG" alt="Wish I Club Logo">
-            <a href="#" class="active">User Details</a>
-            <a href="#">Membership Details</a>
-            <a href="#">Billing Information</a>
-            <a href="#">Event History</a>
-            <a href="#">Reservation Schedules</a>
-            <button class="logout" id="logoutButton">Logout</button>
-        </div>
+     <!-- ✅ Menu Button for Mobile -->
+<div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+
+<!-- ✅ Sidebar -->
+<div class="sidebar">
+    <img src="assets/images/Wish Club Logo.JPG" alt="Wish I Club Logo">
+    <a href="#" class="active">User Details</a>
+    <a href="#">Membership Details</a>
+    <a href="#">Billing Information</a>
+    <a href="#">Event History</a>
+    <a href="#">Reservation Schedules</a>
+    <button class="logout" id="logoutButton">Logout</button>
+</div>
+<script>// ✅ Mobile Sidebar Toggle Function
+    function toggleSidebar() {
+        document.querySelector(".sidebar").classList.toggle("show");
+    }
+    </script>
 
         <div class="main-content">
             <!-- ✅ User Information -->
@@ -584,7 +725,7 @@ textarea {
                 return;
             }
 
-            fetch("http://localhost:8080/api/auth/change-password", {
+            fetch("https://wishhospitality.ae//api/auth/change-password", {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${authToken}`,
@@ -608,33 +749,31 @@ textarea {
             
                 // ✅ Function to Fetch User Details
                 function fetchUserDetails() {
-        fetch("http://localhost:8080/api/auth/user-details", {
-            method: "GET",
-            headers: {
-                "Authorization": `Bearer ${authToken}`,
-                "Content-Type": "application/json"
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.Success && data.user) {
-                userId = data.user.userId; // Store user ID globally
-                updateDashboard(data.user, "user-details");
-            } else {
-                displayNoData("user-details");
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching user details:", error);
-            displayNoData("user-details");
-        });
-
-        // ✅ Load profile picture from localStorage if available
-        const storedProfilePicture = localStorage.getItem("profilePicture");
-        if (storedProfilePicture) {
-            document.getElementById("profilePicture").src = storedProfilePicture;
+    fetch("https://wishhospitality.ae/api/auth/user-details", {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${authToken}`,
+            "Content-Type": "application/json"
         }
-    }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Debug: User Details API Response →", data); // ✅ Debugging
+
+        if (data.Success && data.user) {
+            userId = data.user.userId; // ✅ Make sure userId is set correctly
+            console.log("Debug: userId successfully set →", userId); // ✅ Confirm userId is set
+            updateDashboard(data.user, "user-details");
+        } else {
+            console.error("Error: User not found in API response", data);
+            displayNoData("user-details");
+        }
+    })
+    .catch(error => {
+        console.error("Fetch error in user details:", error);
+        displayNoData("user-details");
+    });
+}
 
 
             
@@ -646,7 +785,7 @@ textarea {
                         return;
                     }
             
-                    fetch(`http://localhost:8080/api/application/view-application?userId=${userId}`, {
+                    fetch(`https://wishhospitality.ae//api/application/view-application?userId=${userId}`, {
                         method: "GET",
                         headers: {
                             "Authorization": `Bearer ${authToken}`,
@@ -669,7 +808,7 @@ textarea {
             
                 // ✅ Function to Fetch Data Dynamically for Each Section
                 function fetchSectionData(section) {
-                    let apiUrl = `http://localhost:8080/api/auth/${section}`;
+                    let apiUrl = `https://wishhospitality.ae//api/auth/${section}`;
                     
                     if (section === "membership-details") {
                         fetchMembershipDetails(); // Membership needs separate user ID check
@@ -742,6 +881,10 @@ textarea {
                                 </div>
                             `;
                             break;
+
+                            function formatCardNumber(cardNumber) {
+    return cardNumber.replace(/(\d{4})(?=\d)/g, "$1 ");
+}
                         case "membership-details":
                             let cardImage1 = "";
                             let cardImage2 = "";
@@ -754,7 +897,7 @@ textarea {
                                     break;
                                 case 2:
                                     cardImage1 = "assets/images/card_images/TOPAZ TITAN.png";
-                                    cardImage2 = "assets/images/card_images/TOPAZ TITAN BACK";
+                                    cardImage2 = "assets/images/card_images/TOPAZ TITAN BACK.png";
                                     break;
                                 case 3:
                                     cardImage1 = "assets/images/card_images/ELYSIAN ELITE.png";
@@ -794,25 +937,25 @@ textarea {
                                     cardImage2 = "assets/images/cards/default-back.png";
                             }
             
+                            let formattedCardNumber = data.memberCardNumber ? formatCardNumber(data.memberCardNumber) : "No Data Found";
+
                             content = `
-                                <div class="card full-width"><strong>Application ID:</strong> <span class="highlight">${data.applicationId || "No Data Found"}</span></div>
-                                <div class="card"><strong>Membership Card:</strong> <span class="${data.memberCardNumber ? 'green-light' : 'red-light'}">${data.memberCardNumber || "No Data Found"}</span></div>
-                                <div class="card"><strong>CVV:</strong> <span>${data.memberCardCVV || "No Data Found"}</span></div>
-                                <div class="card"><strong>Selected Card:</strong> <span>${data.cardName || "No Data Found"}</span></div>
-                                <div class="card"><strong>Card Price:</strong> <span>${data.cardPrice ? `$${data.cardPrice}` : "No Data Found"}</span></div>
-                                <div class="card"><strong>Membership Status:</strong> <span class="${data.membershipStatus === 'Active' ? 'green-light' : 'red-light'}">${data.membershipStatus || "No Data Found"}</span></div>
-                                <div class="card"><strong>Start Date:</strong> <span>${data.startDate || "No Data Found"}</span></div>
-                                <div class="card"><strong>Expiry Date:</strong> <span>${data.expiryDate || "No Data Found"}</span></div>
-            
-                                <!-- ✅ Display Two Card Images -->
-                                <div class="card double-image-card">
-                                    <strong>Membership Card Images:</strong><br>
-                                    <div class="image-container">
-                                        <img src="${cardImage1}" alt="Front Side" class="card-image">
-                                        <img src="${cardImage2}" alt="Back Side" class="card-image">
-                                    </div>
-                                </div>
-                            `;
+    <div class="card full-width"><strong>Application ID:</strong> <span class="highlight">${data.applicationId || "No Data Found"}</span></div>
+    <div class="card"><strong>Membership Card:</strong> <span class="${data.memberCardNumber ? 'green-light' : 'red-light'}">${formattedCardNumber}</span></div>
+    <div class="card"><strong>CVV:</strong> <span>${data.memberCardCVV || "No Data Found"}</span></div>
+    <div class="card"><strong>Selected Card:</strong> <span>${data.cardName || "No Data Found"}</span></div>
+    <div class="card"><strong>Card Price:</strong> <span>${data.cardPrice ? `$${data.cardPrice}` : "No Data Found"}</span></div>
+    <div class="card"><strong>Membership Status:</strong> <span class="${data.membershipStatus === 'Active' ? 'green-light' : 'red-light'}">${data.membershipStatus || "No Data Found"}</span></div>
+    <div class="card"><strong>Start Date:</strong> <span>${data.startDate || "No Data Found"}</span></div>
+    <div class="card"><strong>Expiry Date:</strong> <span>${data.expiryDate || "No Data Found"}</span></div>
+    <div class="double-image-card">
+        <div class="image-container">
+            <img src="${cardImage1}" alt="Card Front" class="card-image">
+            <img src="${cardImage2}" alt="Card Back" class="card-image">
+        </div>
+    </div>
+`;
+
                             break;
                     }
             
@@ -841,7 +984,7 @@ textarea {
                     }
                 });
             
-                // ✅ Load "User Details" first, then fetch membership details
+       
                  // ✅ Load User Details
     fetchUserDetails();
 // ✅ Review Section Logic
@@ -876,7 +1019,7 @@ submitReviewBtn.addEventListener("click", function () {
         return;
     }
 
-    fetch("http://localhost:8080/api/review/submit", {
+    fetch("https://wishhospitality.ae//api/review/submit", {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${authToken}`,
@@ -900,7 +1043,7 @@ submitReviewBtn.addEventListener("click", function () {
 
 // ✅ Load User's Reviews
 function loadUserReviews() {
-    fetch(`http://localhost:8080/api/review/all`, {
+    fetch(`https://wishhospitality.ae//api/review/all`, {
         method: "GET",
         headers: { "Authorization": `Bearer ${authToken}` }
     })
